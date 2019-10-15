@@ -9,4 +9,4 @@
 7ème étape: Enregistrer puis retournez dans votre terminal pour taper "git add <nomDuFichierAjoute>"
 8ème étape: Taper "git commit -m 'description de votre modification de code'"
 9ème étape: Une fois que tous vos commits sont réalisés, taper "git push origin master"
-=> votre repository github sera mis a jour sur le site GitHub
+=> votre repository github sera mis a jour sur le site GitHub   gg
