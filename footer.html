@@ -1,8 +1,61 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta charset='UTF-8'>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #f1f1f1;
+            }
+
+            .social-buttons a{
+                display: inline-flex;
+                text-decoration: none;
+                font-size: 18px;
+                width: 60px;
+                height: 60px;
+                color: #fff;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                margin: 0 8px;
+            }
+
+            .social-buttons a::before{
+                content: "";
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(45deg,#22a6b3,#30336b);
+                border-radius: 50%;
+                z-index: -1;
+                transition: 0.3s ease-in;
+            }
+
+            .social-buttons a:hover::before{
+                transform: scale(0);
+            }
+
+            .social-buttons a i{
+                transition: 0.3s ease-in;
+            }
+
+            .social-buttons a:hover i{
+                background: linear-gradient(45deg,#22a6b3,#30336b);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                transform: scale(2.2);
+            }
+
+        </style>
     </head>
 
 
@@ -14,11 +67,15 @@
             <p class="text-light pb-3 pl-3 pr-3">77 Place Jean Jaurès - Hénin-Beaumont 62110</p>
             <p class="text-light pb-3 pl-1 pr-1">03 66 23 36 44</p>
         </div>
-        <div class="pt-3">
+        <!--<div class="pt-3">
             <img src='pictures/facebook.svg' class='img-fluid pr-1' id='facebook-icon' style='max-width: 3%;height: auto' />
             <label for='facebook-icon' style='font-size: 13px'><a style='color: grey; text-decoration: none' href='https://www.facebook.com/atelier.du.bijoutier/'>atelier.du.bijoutier</a></label>
             <img src='pictures/instagram.svg' class='img-fluid pr-1 ml-5' id='instagram-icon' style='max-width: 3%;height: auto' />
             <label for='instagram-icon' style='font-size: 13px'><a style='color: grey; text-decoration: none' href='https://www.instagram.com/latelierdubijoutier/'>@latelierdubijoutier</a></label>
+        </div>-->
+        <div class="social-buttons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 
