@@ -32,8 +32,8 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
             <p class="text-light pb-3 pl-1 pr-1">03 66 23 36 44</p>
         </div>
         <div class="pt-3">
-            <a href="https://www.facebook.com/atelier.du.bijoutier/" target="_blank"><img src='pictures/facebook.svg' class='img-fluid pr-1' id='facebook-icon' style='max-width: 5%;height: auto' /></a>
-            <a href="https://www.instagram.com/latelierdubijoutier/" target="_blank"><img src='pictures/instagram.svg' class='img-fluid pr-1 ml-5' id='instagram-icon' style='max-width: 4%;height: auto' />
+            <a href="https://www.facebook.com/atelier.du.bijoutier/" target="_blank"><img src='pictures/facebook.svg' class='img-fluid pr-1' id='facebook-icon' style='max-width: 4%;height: auto' /></a>
+            <a href="https://www.instagram.com/latelierdubijoutier/" target="_blank"><img src='pictures/instagram.svg' class='img-fluid pr-1 ml-5' id='instagram-icon' style='max-width: 3.5%;height: auto' />
         </div>
     </div>
 </footer>
