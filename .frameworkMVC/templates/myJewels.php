@@ -38,7 +38,7 @@
     </div>
 </div>
 
-<p class="text-left mt-4 mb-4" style="margin:auto;max-width:75vw">Sur cette page, vous pouvez consulter l'historique de vos réparations et éventuellement poster un avis sur celle(s) effectuée(s).</p>
+<p class="text-left mt-5 mb-5" style="margin:auto;max-width:75vw">Sur cette page, vous pouvez consulter l'historique de vos réparations et éventuellement poster un avis sur celle(s) effectuée(s).</p>
 
 <!-- PHP 
     if( $nbJwl==0 ) echo "<p class="h5 text-center">Aucune réparation n'a été effectuée.</p>";
