@@ -8,6 +8,15 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	
 	<style>
+        body{
+            background: url(".frameworkMVC/ressources/bkgLogin.jpeg") no-repeat;
+            background-size: cover;
+        }
+
+        form{
+            background-color: white;
+        }
+
 		label{
 			font-size:80%;
 		}
@@ -50,7 +59,7 @@
 					<label for='connected'><input type="checkbox"/></label>
 					<span id='connected' style="font-size:70%" class="">Rester connecté</span>
 				</div>	
-				<input class='btn btn-primary btn-block w-75 mt-4 mb-3' type='submit' value='Se connecter' />
+				<input class='btn btn-primary btn-block w-75 mt-4 mb-3 text-light bg-dark' type='submit' value='Se connecter' />
 			</form>
 
 			<!-- Formulaire d'inscription -->
@@ -74,7 +83,7 @@
 					<input id='pwd' class='form-control w-75' type="password" maxlength="20" value=""/>
 					<small id="pwdHelp" class="form-text text-muted text-center">Entre 6 et 20 caractères.</small>
 				</div>
-				<input class='btn btn-success btn-block mt-5 mb-3 w-75' type='submit' value="S'inscrire" />
+				<input class='btn btn-success btn-block mt-5 mb-3 w-75 text-light bg-dark' type='submit' value="S'inscrire" />
 			</form>
 		</div>
 	</div>
