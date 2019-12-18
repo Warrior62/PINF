@@ -66,21 +66,21 @@
 			<form class='form col-md-4 border border-dark rounded' style="height:90%;margin-top:15vh">
 				<p class='h5 text-dark text-center mt-3'>Inscription</p>
 				<div class='form-group mt-4'>
-					<label for='nom'>Nom</label>
-					<input id='nom' class='form-control w-75' type="text" value=""/>
+					<label for='nomSU'>Nom</label>
+					<input id='nomSU' class='form-control w-75' type="text" value=""/>
 				</div>
 				<div class='form-group'>
-					<label for='prenom'>Prénom</label>
-					<input id='prenom' class='form-control w-75' type="text" value=""/>
+					<label for='prenomSU'>Prénom</label>
+					<input id='prenomSU' class='form-control w-75' type="text" value=""/>
 				</div>
 				<div class='form-group'>
-					<label for='mail'>Adresse mail</label>
-					<input id='mail' class='form-control w-75' type="text" value=""/>
+					<label for='mailSU'>Adresse mail</label>
+					<input id='mailSU' class='form-control w-75' type="text" value=""/>
 					<small id="emailHelp" class="form-text text-muted text-center">exemple: dupont@gmail.com</small>
 				</div>
 				<div class='form-group'>
-					<label for='pwd'>Mot de passe</label>
-					<input id='pwd' class='form-control w-75' type="password" maxlength="20" value=""/>
+					<label for='pwdSU'>Mot de passe</label>
+					<input id='pwdSU' class='form-control w-75' type="password" maxlength="20" value=""/>
 					<small id="pwdHelp" class="form-text text-muted text-center">Entre 6 et 20 caractères.</small>
 				</div>
 				<input class='btn btn-success btn-block mt-5 mb-3 w-75 text-light bg-dark' type='submit' value="S'inscrire" />
@@ -92,16 +92,24 @@
 
 		var flagMail=true;
 		$("#mail").click(function(){
-
+			
 			if( flagMail ){
-				$("#labelMail").animate({"font-size": "+=1"},300);
+				$("#labelMail").animate({"font-size": "+=1"}, 200);
 				flagMail=false;
 			} 
-	
+			else {
+				$("#labelMail").animate({"font-size": "-=1"}, 200);
+				flagMail=true;
+			}
+
 		});
+
+		
+
 
 	
 	</script>
+	<script src="./frameworkMVC/js/signUpForm.js"></script>
 
 </body>
 </html>
