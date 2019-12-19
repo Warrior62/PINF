@@ -26,7 +26,7 @@
     </style>
 </head>
     
-<div class="row text-center mt-4 w-75" style="margin:auto">
+<div class="row text-center mt-5 w-75" style="margin:auto">
     <div class="col-4">
         <hr class="w-50">
     </div>

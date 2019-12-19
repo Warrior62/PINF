@@ -9,22 +9,10 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 
 ?>
 
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta charset='UTF-8'>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
-    </head>
-    <style>
-      footer{
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
 
 
-<footer class="page-footer pt-5 text-center">
+
+<footer class="page-footer pt-5 text-center mt-5">
     <div class="bg-dark border-top pt-5 pb-5">
         <h6 class="text-uppercase text-light pb-3 pl-2 pr-2">L'ATELIER DU BIJOUTIER</h6>
         <div class="pt-3">
@@ -32,8 +20,8 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
             <p class="text-light pb-3 pl-1 pr-1">03 66 23 36 44</p>
         </div>
         <div class="pt-3">
-            <a href="https://www.facebook.com/atelier.du.bijoutier/" target="_blank"><img src='./ressources/facebook.svg' class='img-fluid pr-1' id='facebook-icon' style='max-width: 3vw;height: auto' /></a>
-            <a href="https://www.instagram.com/latelierdubijoutier/" target="_blank"><img src='./ressources/instagram.svg' class='img-fluid pr-1 ml-5' id='instagram-icon' style='max-width: 2.5vw;height: auto' />
+            <a href="https://www.facebook.com/atelier.du.bijoutier/" target="_blank"><img src='./ressources/facebook.svg' class='img-fluid pr-1' id='facebook-icon' style='max-width: 40px;height: auto' /></a>
+            <a href="https://www.instagram.com/latelierdubijoutier/" target="_blank"><img src='./ressources/instagram.svg' class='img-fluid pr-1 ml-5' id='instagram-icon' style='max-width: 30px;height: auto' />
         </div>
     </div>
 </footer>
