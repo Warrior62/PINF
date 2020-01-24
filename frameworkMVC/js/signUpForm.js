@@ -1,40 +1,61 @@
-// Capitalize the first letter of first name's and last name's input
-function enMajuscule(str) 
+var pwd = document.getElementById('pwdSU');
+var eye = document.getElementById('eye');
+
+eye.addEventListener('click',togglePass);
+
+function togglePass()
 {
+    eye.classList.toggle('active');
+
+    (pwd.type == 'password') ? pwd.type = 'text' :
+    pwd.type = 'password';
+}
+
+// Capitalize the first letter of first name's and last name's input
+function uppercase(str) {
    return str.split(/\s+/).map(s => s.charAt(0).toUpperCase() + s.substring(1).toLowerCase()).join(" ");
+}
+
+// Analyse the user's lastname and firstname's field
+function namesInput(bool, str) {
+    var nLength = str.length;
+    var label = "";
+
+    if( bool == 0 ) label = "nom";
+    else label = "prenom";
+
+    if( nLength == 0 ) {
+        $("#"+label+"Help").text("Votre "+label+" n'est pas renseigné.");
+        $("#"+label+"SU").css("border-color","red");
+    }
+    else {
+        for(var i=0; i<10; i++){
+            if( !(str.includes(i.toString())) ) {
+                $("#"+label+"Help").text("");
+                $("#"+label+"SU").css("border-color","green");
+                $("#"+label+"SU").val( uppercase(str) );
+            }
+            else {
+                $("#"+label+"Help").text("La saisie n'est pas correcte.");
+                $("#"+label+"SU").css("border-color","red");  
+                break;
+            }
+        }   
+    }
+    
 }
 
 // Show user if he wrote in the last name input
 $("#nomSU").keyup(function(){
-    var longueur = $(this).val().length;
-    
-    if( longueur == 0 ) {
-        $("#nomHelp").text("Votre nom n'est pas renseigné.");
-        $(this).css("border-color","lightgrey");
-    }
-    else {
-        $("#nomHelp").text("");
-        $(this).css("border-color","green");
-    }
-
-    $(this).val( enMajuscule( $(this).val() ) );
+    var str = $(this).val();
+    namesInput(0, str);
 });
 
 
 // Show user if he wrote in the first name input
 $("#prenomSU").keyup(function(){
-    var longueur = $(this).val().length;
-    
-    if( longueur == 0 ) {
-        $("#prenomHelp").text("Votre prénom n'est pas renseigné.");
-        $(this).css("border-color","lightgrey");
-    }
-    else {
-        $("#prenomHelp").text("");
-        $(this).css("border-color","green");
-    }
-
-    $(this).val( enMajuscule( $(this).val() ) );
+    var str = $(this).val();
+    namesInput(1, str);
 });
 
 
@@ -42,59 +63,64 @@ $("#prenomSU").keyup(function(){
 $("#mailSU").keyup(function(){
     var str = $(this).val();
 
-    if( (str.includes('.fr') || str.includes('.com') || str.includes('.net')) && str.includes('@') ) {
-        $("#emailHelp").html("");
-        $(this).css("border-color","green");
-    }
-    else {
-        $("#emailHelp").text("Ceci n'est pas une adresse mail.");
-        $(this).css("border-color","lightgrey");
-    } 
-
     if( str == '' ) {
         $("#emailHelp").html("");
         $(this).css("border-color","lightgrey");
+    }
+    else {
+        if( (str.includes('.fr') || str.includes('.com') || str.includes('.net')) && str.includes('@') ) {
+            $("#emailHelp").html("");
+            $(this).css("border-color","green");
+        }
+        else {
+            $("#emailHelp").text("Ceci n'est pas une adresse mail.");
+            $(this).css("border-color","red");
+        } 
     }
 });
 
 
 // Show user if he wrote a password between 6 and 20 characters
 $("#pwdSU").keyup(function(){
-    var longueur = $(this).val().length;
+    var pwdLength = $(this).val().length;
 
-    if( longueur >= 6 && longueur <= 20 ) {
-        $("#pwdHelp").text("");
-        $(this).css("border-color","green");
-    }
-    else {
-        $("#pwdHelp").text("Ce mot de passe contient moins de 6 caractères");
-        $(this).css("border-color","lightgrey");
-    }
-    
-    if( longueur == 0 ) {
+    if( pwdLength == 0 ) {
         $("#pwdHelp").text("Entre 6 et 20 caractères.");
-        $(this).css("border-color","lightgrey");
+        $(this).css("border-color","red");
     } 
+    else {
+        if( pwdLength >= 6 && pwdLength <= 20 ) {
+            $("#pwdHelp").text("");
+            $(this).css("border-color","green");
+        }
+        else {
+            $("#pwdHelp").text("Ce mot de passe contient moins de 6 caractères");
+            $(this).css("border-color","red");
+        }
+    }
 });
 
 
 // Show user if he wrote a phone number consisted of 10 figures
 $("#numSU").keyup(function(){
-    var longueur = $(this).val().length;
+    var str = $(this).val();
+    var numLength = str.length;
 
-    if( longueur < 10 ) {
-        $("#numHelp").text("Ce numéro contient moins de 10 chiffres.");
-        $(this).css("border-color","lightgrey");
+    if( numLength == 0 ) {
+        $("#numHelp").text("");   
+        $(this).css("border-color","red");
     }
     else {
-        $("#numHelp").text("");   
-        $(this).css("border-color","green");
-    }
-        
-    if( longueur == 0 ) {
-        $("#numHelp").text("");   
-        $(this).css("border-color","lightgrey");
+        if( str%1 == 0 && str.charAt(0) == "0" ) {
+            if( numLength < 10 ) {
+                $("#numHelp").text("Ce numéro contient moins de 10 chiffres.");
+                $(this).css("border-color","red");
+            }
+            else {
+                $("#numHelp").text("");   
+                $(this).css("border-color","green");
+            }      
+        }
+        else $("#numHelp").text("La saisie n'est pas un numéro de téléphone.");
     }
 });
-
-

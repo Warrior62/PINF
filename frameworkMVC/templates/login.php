@@ -18,47 +18,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	
-	<style>
-
-        form{
-            background-color: white;
-			border-radius: 20px;
-			border: 1.5px solid black;
-        }
-
-		label{
-			font-size:80%;
-		}
-
-		input{
-			margin:auto;
-		}
-
-		input[type="submit"]{
-			font-size:90%;	
-		}
-
-		input[type="text"], input[type="password"]{
-			border-radius: 10px;
-			border-color: lightgrey;
-			font-size: 80%;
-		}
-
-		div.container{
-			max-width: 60vw;
-		}
-
-		label{margin-left:12.5%}
-
-		small{font-size:60%}
-
-		div+p{
-			font-size: 65%;
-		}
-
-
-	</style>
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 
 <body>
@@ -117,7 +77,8 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				</div>
 				<div class='form-group'>
 					<label for='pwdSU'>Mot de passe *</label>
-					<input id='pwdSU' class='form-control w-75' type="text" maxlength="20" value=""/>
+					<img src='oeil.svg' id='eye'/>
+					<input id='pwdSU' class='form-control w-75' type="password" maxlength="20" value=""/>
 					<small id="pwdHelp" class="form-text text-muted text-center">Entre 6 et 20 caractères.</small>
 				</div>
 				<div class='form-group'>
@@ -131,7 +92,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 		</div>
 	</div>
 
-	<script src="./js/signInForm.js"></script>
+	
 	<script src="./js/signUpForm.js"></script>
 
 </body>
