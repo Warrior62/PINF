@@ -77,7 +77,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				</div>
 				<div class='form-group'>
 					<label for='pwdSU'>Mot de passe *</label>
-					<img src='oeil.svg' id='eye'/>
+					<img src='./ressources/oeil.svg' id='eye'/>
 					<input id='pwdSU' class='form-control w-75' type="password" maxlength="20" value=""/>
 					<small id="pwdHelp" class="form-text text-muted text-center">Entre 6 et 20 caractères.</small>
 				</div>
