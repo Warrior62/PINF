@@ -1,3 +1,7 @@
+<?php
+    include_once("./libs/maLibSQL.pdo.php");
+?>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset='UTF-8'>
@@ -38,72 +42,82 @@
     </div>
 </div>
 
-<p class="text-left mt-5 mb-5" style="margin:auto;max-width:75vw">Sur cette page, vous pouvez consulter l'historique de vos réparations et éventuellement poster un avis sur celle(s) effectuée(s).</p>
+<p class="text-center mt-5 mb-5" style="margin:auto;max-width:75vw">Sur cette page, vous pouvez consulter l'historique de vos réparations et éventuellement poster un avis sur celle(s) effectuée(s).</p>
 
-<!-- PHP 
-    if( $nbJwl==0 ) echo "<p class="h5 text-center">Aucune réparation n'a été effectuée.</p>";
-    else echo "<div class="container">. . .</div>";
--->
+<?php
+    $nbJwl = SQLGetChamp("SELECT COUNT(idBijoux) FROM bijou");
 
-<div class="container">
-    <fieldset class="scheduler-border">
-        <legend class="scheduler-border ">Bijou°<span id="jwlNum"><!-- PHP chercher ds bdd numero du jewel --></span></legend>
-        <div class="row">
-            <!-- Etat du bijou : div à gauche dans le fieldset -->
-            <div class="col-md-6">
-                <form class="mt-5 pt-3 pb-1 pl-3 pr-3 w-75">
-                    <div class="form-group row">
-                        <div class="col-sm">
-                            <label for="jwlNumSAV">Numéro SAV</label>
+    $descJwl = parcoursRs(SQLSelect("SELECT descBijoux FROM bijou"));
+    $labelJwl = parcoursRs(SQLSelect("SELECT designation FROM bijou"));
+    $matJwl = parcoursRs(SQLSelect("SELECT materiau FROM bijou"));
+
+    if( $nbJwl==0 ) echo '<p class="h6 text-center">(Aucune réparation n\'a été effectuée.)</p>';
+    else {
+        for($i=1; $i<=$nbJwl; $i++){
+            echo '
+            <div class="container mb-5 mt-5">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border ">Bijou°<span id="jwlNum">'.$i.'</span></legend>
+                    <div class="row">
+                        <!-- Etat du bijou : div à gauche dans le fieldset -->
+                        <div class="col-md-6">
+                            <form class="mt-5 pt-3 pb-1 pl-3 pr-3 w-75">
+                                <div class="form-group row">
+                                    <div class="col-sm">
+                                        <label for="jwlNumSAV">Numéro SAV</label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input id="jwlNumSAV" class="w-100" type="text" disabled/>
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4">
+                                    <div class="col-sm">
+                                        <label for="jwlState">Etat de la réparation</label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input id="jwlState" class="w-100 text-center text-warning" style="font-size:85%" type="text" value="En cours" disabled/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>  
+                        <!-- Informations sur le bijou : div à droite dans le fieldset -->
+                        <div class="col-md-6 pl-4">
+                            <p class="h6 mt-4">Informations sur le bijou</p>
+                            <form class="border border-dark rounded-sm pt-3 pb-1 pl-3 pr-3 w-75">
+                                <div class="form-group row">
+                                    <div class="col-sm">
+                                        <label for="jwlDesignation">Désignation</label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input id="jwlDesignation" class="w-100" type="text" value="'.$labelJwl[$i-1]["designation"].'" disabled/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm">
+                                        <label for="jwlMateriau">Matériau</label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input id="jwlMateriau" class="w-100" type="text" value="'.$matJwl[$i-1]["materiau"].'" disabled/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm">
+                                        <label for="jwlProbleme">Problème</label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <textarea id="jwlProbleme" class="w-100" disabled>'.$descJwl[$i-1]["descBijoux"].'</textarea>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="col-sm">
-                            <input id="jwlNumSAV" class="w-100" type="text" disabled/>
-                        </div>
+                        <a class="mt-4 ml-4 font-italic text-decoration-none text-dark" style="font-size:90%" href="'.header("Location:../index.php?view=galery").'">Cliquez ici pour laisser un avis !</a>
                     </div>
-                    <div class="form-group row mt-4">
-                        <div class="col-sm">
-                            <label for="jwlState">Etat de la réparation</label>
-                        </div>
-                        <div class="col-sm">
-                            <input id="jwlState" class="w-100 text-center text-warning" style="font-size:85%" type="text" value="En cours" disabled/>
-                        </div>
-                    </div>
-                </form>
-            </div>  
-            <!-- Informations sur le bijou : div à droite dans le fieldset -->
-            <div class="col-md-6 pl-4">
-                <p class="h6 mt-4">Informations sur le bijou</p>
-                <form class="border border-dark rounded-sm pt-3 pb-1 pl-3 pr-3 w-75">
-                    <div class="form-group row">
-                        <div class="col-sm">
-                            <label for="jwlDesignation">Désignation</label>
-                        </div>
-                        <div class="col-sm">
-                            <input id="jwlDesignation" class="w-100" type="text" disabled/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm">
-                            <label for="jwlMateriau">Matériau</label>
-                        </div>
-                        <div class="col-sm">
-                            <input id="jwlMateriau" class="w-100" type="text" disabled/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm">
-                            <label for="jwlProbleme">Problème</label>
-                        </div>
-                        <div class="col-sm">
-                            <input id="jwlProbleme" class="w-100" type="text" disabled/>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <a class="mt-4 ml-4 font-italic text-decoration-none text-dark" style="font-size:90%" href=""><!-- PHP href=header("Location:../index.php?view=galery"); -->Cliquez ici pour laisser un avis !</a>
-        </div>
-    </fieldset>
-</div>
+                </fieldset>
+            </div>';
+        }
+    }
+?>
+
 
 
 
