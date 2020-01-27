@@ -62,32 +62,32 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				<p class='h5 text-dark text-center mt-3'>Inscription</p>
 				<div class='form-group mt-4'>
 					<label for='nomSU'>Nom *</label>
-					<input id='nomSU' class='form-control w-75' type="text" value=""/>
+					<input id='nomSU' class='form-control w-75 inputSU' type="text" value=""/>
 					<small id="nomHelp" class="form-text text-muted text-center"></small>
 				</div>
 				<div class='form-group'>
 					<label for='prenomSU'>Prénom *</label>
-					<input id='prenomSU' class='form-control w-75' type="text" value=""/>
+					<input id='prenomSU' class='form-control w-75 inputSU' type="text" value=""/>
 					<small id="prenomHelp" class="form-text text-muted text-center"></small>
 				</div>
 				<div class='form-group'>
 					<label for='mailSU'>Adresse mail *</label>
-					<input id='mailSU' class='form-control w-75' type="text" value=""/>
+					<input id='mailSU' class='form-control w-75 inputSU' type="text" value=""/>
 					<small id="emailHelp" class="form-text text-muted text-center"></small>
 				</div>
 				<div class='form-group'>
 					<label for='pwdSU'>Mot de passe *</label>
 					<img src='./ressources/oeil.svg' id='eye'/>
-					<input id='pwdSU' class='form-control w-75' type="password" maxlength="20" value=""/>
+					<input id='pwdSU' class='form-control w-75 inputSU' type="password" maxlength="20" value=""/>
 					<small id="pwdHelp" class="form-text text-muted text-center">Entre 6 et 20 caractères.</small>
 				</div>
 				<div class='form-group'>
-					<label for='numSU'>Numéro de téléphone</label>
-					<input id='numSU' class='form-control w-75' type="text" maxlength="10" value=""/>
+					<label for='numSU'>Numéro de téléphone *</label>
+					<input id='numSU' class='form-control w-75 inputSU' type="text" maxlength="10" value=""/>
 					<small id="numHelp" class="form-text text-muted text-center"></small>
 				</div>
 				<p class="font-italic mt-4 text-center">* champs obligatoires</p>
-				<input class='btn btn-success btn-block mt-4 mb-3 w-75 text-light bg-dark' type='submit' value="S'inscrire" />
+				<input id="btnSbmtSU" class='btn btn-success btn-block mt-4 mb-3 w-75 text-light bg-dark' type='button' value="S'inscrire" />
 			</form>
 		</div>
 	</div>

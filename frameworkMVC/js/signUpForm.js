@@ -27,6 +27,7 @@ function namesInput(bool, str) {
     if( nLength == 0 ) {
         $("#"+label+"Help").text("Votre "+label+" n'est pas renseigné.");
         $("#"+label+"SU").css("border-color","red");
+        return -1;
     }
     else {
         for(var i=0; i<10; i++){
@@ -45,21 +46,21 @@ function namesInput(bool, str) {
     
 }
 
-// Show user if he wrote in the last name input
+// Show user wether he wrote in the last name input
 $("#nomSU").keyup(function(){
     var str = $(this).val();
     namesInput(0, str);
 });
 
 
-// Show user if he wrote in the first name input
+// Show user wether he wrote in the first name input
 $("#prenomSU").keyup(function(){
     var str = $(this).val();
     namesInput(1, str);
 });
 
 
-// Show user if he wrote a right email adress
+// Show user wether he wrote a right email adress
 $("#mailSU").keyup(function(){
     var str = $(this).val();
 
@@ -71,6 +72,7 @@ $("#mailSU").keyup(function(){
         if( (str.includes('.fr') || str.includes('.com') || str.includes('.net')) && str.includes('@') ) {
             $("#emailHelp").html("");
             $(this).css("border-color","green");
+            //cptGlobal++;
         }
         else {
             $("#emailHelp").text("Ceci n'est pas une adresse mail.");
@@ -80,7 +82,7 @@ $("#mailSU").keyup(function(){
 });
 
 
-// Show user if he wrote a password between 6 and 20 characters
+// Show user wether he wrote a password between 6 and 20 characters
 $("#pwdSU").keyup(function(){
     var pwdLength = $(this).val().length;
 
@@ -101,14 +103,14 @@ $("#pwdSU").keyup(function(){
 });
 
 
-// Show user if he wrote a phone number consisted of 10 figures
+// Show user wether he wrote a phone number consisted of 10 figures
 $("#numSU").keyup(function(){
     var str = $(this).val();
     var numLength = str.length;
 
     if( numLength == 0 ) {
-        $("#numHelp").text("");   
-        $(this).css("border-color","red");
+        $("#numHelp").text("");  
+        $(this).css("border-color","red"); 
     }
     else {
         if( str%1 == 0 && str.charAt(0) == "0" ) {
@@ -119,8 +121,28 @@ $("#numSU").keyup(function(){
             else {
                 $("#numHelp").text("");   
                 $(this).css("border-color","green");
+                //if( numLength == 10 ) cptGlobal++;
             }      
         }
-        else $("#numHelp").text("La saisie n'est pas un numéro de téléphone.");
+        else {
+            $("#numHelp").text("La saisie n'est pas un numéro de téléphone.");
+            $(this).css("border-color","red");
+        }
     }
 });
+
+
+// Check wether the fields are right
+/*$("#btnSbmtSU").click(function(){
+    var cpt=5;
+    var inputSU = document.getElementsByClassName('inputSU');
+  
+    for(var i=0; i<inputSU.length; i++){
+        if( inputSU[i].style.borderColor == "green" ) {cpt--;}   
+    }
+    
+    if( cpt == 0 ) window.location.href = "./index.php?view=check";
+
+   
+
+});*/
