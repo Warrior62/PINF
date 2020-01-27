@@ -47,6 +47,13 @@ function autoriserUtilisateur($idUser)
 	SQLUpdate($SQL);
 }
 
+function empecherAdmin($pwd)
+{
+	// cette fonction affecte le booléen "admin" à faux 
+	$SQL = "UPDATE users SET adm=0 WHERE mdp='$pwd'";
+	SQLUpdate($SQL);
+}
+
 function verifUserBdd($login,$passe)
 {
 	// Vérifie l'identité d'un utilisateur 
@@ -54,12 +61,53 @@ function verifUserBdd($login,$passe)
 	// renvoie faux si user inconnu
 	// renvoie l'id de l'utilisateur si succès
 
-	$SQL="SELECT id FROM users WHERE pseudo='$login' AND passe='$passe'";
+	$SQL="SELECT idUser FROM users WHERE email='$login' AND mdp='$passe'";
 
 	return SQLGetChamp($SQL);
 	// si on avait besoin de plus d'un champ
 	// on aurait du utiliser SQLSelect
 }
 
+function isName($bool, $str)
+{
+    $nLength = count($str);
+	
+	if( $nLength == 0 ) return false;
+	else {
+		if( !(is_numeric($str)) ) return false;
+		else {
+			if( preg_match('[0-9]', $str)) return false;
+			else return true;
+		}
+	}    
+}
 
-?>
+function isMail($mail)
+{
+	// Vérifie la conformité d'une adresse mail saisie
+	// renvoie true si l'adresse mail saisie est correcte
+	// renvoie false sinon 
+	if( filter_var($mail, FILTER_VALIDATE_EMAIL) ) return true;
+	else return false;
+}
+
+function isPassword($pwd)
+{
+	// Vérifie la conformité du mot de passe saisi
+	// renvoie true si le mot de passe comporte entre 6 et 20 caractères
+	// renvoie false sinon 
+	if( count($pwd) >= 6 && count($pwd) <= 20 ) return true;
+	else return false;
+}
+
+function isPhoneNb($pn)
+{
+	// Vérifie la conformité d'un numéro de téléphone saisi
+	// renvoie true si le numéro de téléphone saisi est correcte
+	// renvoie false sinon 
+	if( is_int($pn) && count($pn) == 10 ) return true;
+	else return false;
+}
+
+
+

@@ -55,6 +55,29 @@ session_start();
 				// On redirigera vers la page index automatiquement
 			break;
 
+			case 'Inscription' :
+
+				if( $lName = valider("nomSU") )
+				if( $fName = valider("prenomSU") )
+				{
+					if( $mail = valider("mailSU") )
+					if( $pwd = valider("pwdSU") )
+					{
+						if( $num = valider("numSU") )
+						{
+							if( isName($lName) && isName($fName) && isMail($mail) && isPassword($pwd) && isPhoneNb($num) )
+							{
+								SQLInsert("INSERT INTO users(nom,prenom,email,mdp) VALUES('$lName','$fName','$mail','$pwd')");
+								empecherAdmin($pwd);
+							}
+							else header('Location: index.php?view=login');
+						}
+					}
+				}
+				
+			break;
+				
+
 			case 'Logout' :
 				session_destroy();
 			break;

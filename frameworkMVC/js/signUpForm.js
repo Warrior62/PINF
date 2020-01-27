@@ -121,7 +121,6 @@ $("#numSU").keyup(function(){
             else {
                 $("#numHelp").text("");   
                 $(this).css("border-color","green");
-                //if( numLength == 10 ) cptGlobal++;
             }      
         }
         else {
@@ -131,18 +130,3 @@ $("#numSU").keyup(function(){
     }
 });
 
-
-// Check wether the fields are right
-/*$("#btnSbmtSU").click(function(){
-    var cpt=5;
-    var inputSU = document.getElementsByClassName('inputSU');
-  
-    for(var i=0; i<inputSU.length; i++){
-        if( inputSU[i].style.borderColor == "green" ) {cpt--;}   
-    }
-    
-    if( cpt == 0 ) window.location.href = "./index.php?view=check";
-
-   
-
-});*/
