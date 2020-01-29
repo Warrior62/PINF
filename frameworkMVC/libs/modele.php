@@ -68,17 +68,15 @@ function verifUserBdd($login,$passe)
 	// on aurait du utiliser SQLSelect
 }
 
-function isName($bool, $str)
+function isName($str)
 {
-    $nLength = count($str);
-	
+    $nLength = strlen($str);
+	echo $nLength;
 	if( $nLength == 0 ) return false;
 	else {
-		if( !(is_numeric($str)) ) return false;
-		else {
-			if( preg_match('[0-9]', $str)) return false;
-			else return true;
-		}
+		
+		if( preg_match('[0-9]', $str)) return false;
+		else return true;
 	}    
 }
 
@@ -96,7 +94,8 @@ function isPassword($pwd)
 	// Vérifie la conformité du mot de passe saisi
 	// renvoie true si le mot de passe comporte entre 6 et 20 caractères
 	// renvoie false sinon 
-	if( count($pwd) >= 6 && count($pwd) <= 20 ) return true;
+	
+	if( strlen($pwd) >= 6 && strlen($pwd) <= 20 ) return true;
 	else return false;
 }
 
@@ -105,7 +104,7 @@ function isPhoneNb($pn)
 	// Vérifie la conformité d'un numéro de téléphone saisi
 	// renvoie true si le numéro de téléphone saisi est correcte
 	// renvoie false sinon 
-	if( is_int($pn) && count($pn) == 10 ) return true;
+	if(preg_match('#^0[0-9]([ .-]?[0-9]{2}){4}$#', $pn)) return true;
 	else return false;
 }
 

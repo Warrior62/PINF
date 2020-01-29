@@ -56,21 +56,26 @@ session_start();
 			break;
 
 			case 'Inscription' :
-
+			
 				if( $lName = valider("nomSU") )
 				if( $fName = valider("prenomSU") )
 				{
+					
 					if( $mail = valider("mailSU") )
 					if( $pwd = valider("pwdSU") )
 					{
 						if( $num = valider("numSU") )
 						{
-							if( isName($lName) && isName($fName) && isMail($mail) && isPassword($pwd) && isPhoneNb($num) )
+							if(isName($lName) && isName($fName) && isMail($mail) && isPassword($pwd) && isPhoneNb($num))
 							{
 								SQLInsert("INSERT INTO users(nom,prenom,email,mdp) VALUES('$lName','$fName','$mail','$pwd')");
 								empecherAdmin($pwd);
+								$isGoodForm = true;
+
+								setcookie("login",urlencode($mail) , time()+60*60*24*30);
+							    setcookie("passe",urlencode($pwd), time()+60*60*24*30);
 							}
-							else header('Location: index.php?view=login');
+							else $isGoodForm = false;
 						}
 					}
 				}
@@ -96,7 +101,8 @@ session_start();
 	$urlBase = dirname($_SERVER["PHP_SELF"]) . "/index.php";
 	// On redirige vers la page index avec les bons arguments
 
-	header("Location:" . $urlBase . $addArgs);
+	if( $isGoodForm ) header("Location:" . $urlBase . $addArgs);
+	else header("Location:" . $urlBase . "?view=login");
 
 	// On écrit seulement après cette entête
 	ob_end_flush();
