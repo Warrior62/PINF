@@ -31,21 +31,21 @@ session_start();
 			// Connexion //////////////////////////////////////////////////
 			case 'Connexion' :
 				// On verifie la presence des champs login et passe
-				if ($login = valider("login"))
-				if ($passe = valider("passe"))
+				if ($mailSI = valider("mail"))
+				if ($pwdSI = valider("pwd"))
 				{
 					// On verifie l'utilisateur, 
 					// et on crée des variables de session si tout est OK
 					// Cf. maLibSecurisation
-					if (verifUser($login,$passe)) {
+					if (verifUser($mailSI,$pwdSI)) {
 						// tout s'est bien passé, doit-on se souvenir de la personne ? 
 						if (valider("remember")) {
-							setcookie("login",$login , time()+60*60*24*30);
-							setcookie("passe",$password, time()+60*60*24*30);
+							setcookie("mail",$mailSI , time()+60*60*24*30);
+							setcookie("pwd",$pwdSI, time()+60*60*24*30);
 							setcookie("remember",true, time()+60*60*24*30);
 						} else {
-							setcookie("login","", time()-3600);
-							setcookie("passe","", time()-3600);
+							setcookie("mail","", time()-3600);
+							setcookie("pwd","", time()-3600);
 							setcookie("remember",false, time()-3600);
 						}
 
@@ -56,17 +56,16 @@ session_start();
 			break;
 
 			case 'Inscription' :
-			
+				
 				if( $lName = valider("nomSU") )
 				if( $fName = valider("prenomSU") )
 				{
-					
 					if( $mail = valider("mailSU") )
 					if( $pwd = valider("pwdSU") )
 					{
 						if( $num = valider("numSU") )
 						{
-							if(isName($lName) && isName($fName) && isMail($mail) && isPassword($pwd) && isPhoneNb($num))
+							if( isName($lName) && isName($fName) && isMail($mail) && isPassword($pwd) && isPhoneNb($num) && !alreadyExists($mail) )
 							{
 								SQLInsert("INSERT INTO users(nom,prenom,email,mdp) VALUES('$lName','$fName','$mail','$pwd')");
 								empecherAdmin($pwd);

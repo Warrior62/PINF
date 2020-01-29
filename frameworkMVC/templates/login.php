@@ -70,17 +70,17 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				<p class='h5 text-dark text-center mt-3'>Connexion</p>
 				<div class='form-group mt-4'>
 					<label for='mail' id='labelMail' class='text-center'>Adresse mail</label>
-					<input id='mail' class='form-control w-75' type="text" value=""/>
+					<input id='mail' class='form-control w-75' name="mailSI" type="text" value=""/>
 				</div>
 				<div class='form-group'>
 					<label for='pwd'>Mot de passe</label>
-					<input id='pwd' class='form-control w-75' type="password" maxlength="20" value=""/>
+					<input id='pwd' class='form-control w-75' name="pwdSI" type="password" maxlength="20" value=""/>
 				</div>
 				<div class='form-group'>
 					<label for='connected'><input type="checkbox"/></label>
 					<span id='connected' style="font-size:70%" class="">Rester connecté</span>
 				</div>	
-				<input class='btn btn-primary btn-block w-75 mt-4 mb-3 text-light bg-dark' type='submit' value='Se connecter' />
+				<input class='btn btn-primary btn-block w-75 mt-4 mb-3 text-light bg-dark' name='action' type='submit' value='Connexion' />
 			</form>
 
 			<div id="verticalLine"></div>
@@ -114,7 +114,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 					<input id='numSU' class='form-control w-75 inputSU' name='numSU' type="number" value=""/>
 					<small id="numHelp" class="form-text text-muted text-center"></small>
 				</div>
-				<p class="font-italic mt-4 text-center">* champs obligatoires</p>
+				<p class="font-italic mt-4 text-center" id="errorIndicate">* champs obligatoires</p>
 				<input id="btnSbmtSU" class='btn btn-success btn-block mt-4 mb-3 w-75 text-light bg-dark' name='action' type='submit' value="Inscription" />
 			</form>
 		</div>

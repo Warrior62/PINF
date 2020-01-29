@@ -74,7 +74,6 @@ function isName($str)
 	echo $nLength;
 	if( $nLength == 0 ) return false;
 	else {
-		
 		if( preg_match('[0-9]', $str)) return false;
 		else return true;
 	}    
@@ -106,6 +105,18 @@ function isPhoneNb($pn)
 	// renvoie false sinon 
 	if(preg_match('#^0[0-9]([ .-]?[0-9]{2}){4}$#', $pn)) return true;
 	else return false;
+}
+
+function alreadyExists($email)
+{
+	$SQL="SELECT email FROM users";
+	$tab = parcoursRs(SQLSelect($SQL));
+	
+	foreach ($tab as $value)
+		if( $email == $value ) 
+			return true;
+	
+	return false;
 }
 
 
