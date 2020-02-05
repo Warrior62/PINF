@@ -23,6 +23,8 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 			background-color: white;
 			border-radius: 20px;
 			border: 1.5px solid black;
+			width: 100%;
+			margin: auto;
 		}
 		label{
 			font-size:80%;
@@ -33,7 +35,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 		input[type="submit"]{
 			font-size:90%;	
 		}
-		input[type="text"], input[type="password"], input[type="number"]{
+		input[type="text"], input[type="password"]{
 			border-radius: 10px;
 			border-color: lightgrey;
 			font-size: 80%;
@@ -56,7 +58,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 			<hr class="w-50">
 		</div>
 		<div class="col-4">
-			<p class="h4 text-center">Formulaires d'authentification</p>
+			<p class="h4 text-center">Formulaire de connexion</p>
 		</div>
 		<div class="col-4">
 			<hr class="w-50">
@@ -64,10 +66,12 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	</div>
 
 	<div class='container'>
-		<div class='row justify-content-between'>
+		<div class='row'>
 			<!-- Formulaire de connexion -->
-			<form class='form col-md-4' style="height:90%;margin-top:25vh">
-				<p class='h5 text-dark text-center mt-3'>Connexion</p>
+			<form class='form col-md-4' style="height:90%;margin-top:10vh">
+				<div class='text-center'>	
+					<img src='./ressources/login.svg' class='img-fluid w-25 mt-4' />
+				</div>
 				<div class='form-group mt-4'>
 					<label for='mail' id='labelMail' class='text-center'>Adresse mail</label>
 					<input id='mail' class='form-control w-75' name="mailSI" type="text" value=""/>
@@ -80,42 +84,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 					<label for='connected'><input type="checkbox"/></label>
 					<span id='connected' style="font-size:70%" class="">Rester connecté</span>
 				</div>	
-				<input class='btn btn-primary btn-block w-75 mt-4 mb-3 text-light bg-dark' name='action' type='submit' value='Connexion' />
-			</form>
-
-			<div id="verticalLine"></div>
-
-			<!-- Formulaire d'inscription -->
-			<form action='controleur.php' method='POST' class='form col-md-5 mb-5' style="height:90%;margin-top:15vh">
-				<p class='h5 text-dark text-center mt-3'>Inscription</p>
-				<div class='form-group mt-4'>
-					<label for='nomSU'>Nom *</label>
-					<input id='nomSU' class='form-control w-75 inputSU' name='nomSU' type="text" value=""/>
-					<small id="nomHelp" class="form-text text-muted text-center"></small>
-				</div>
-				<div class='form-group'>
-					<label for='prenomSU'>Prénom *</label>
-					<input id='prenomSU' class='form-control w-75 inputSU' name='prenomSU' type="text" value=""/>
-					<small id="prenomHelp" class="form-text text-muted text-center"></small>
-				</div>
-				<div class='form-group'>
-					<label for='mailSU'>Adresse mail *</label>
-					<input id='mailSU' class='form-control w-75 inputSU' name='mailSU' type="text" value=""/>
-					<small id="emailHelp" class="form-text text-muted text-center"></small>
-				</div>
-				<div class='form-group'>
-					<label for='pwdSU'>Mot de passe *</label>
-					<img src='./ressources/oeil.svg' id='eye'/>
-					<input id='pwdSU' class='form-control w-75 inputSU' name='pwdSU' type="password" maxlength="20" value=""/>
-					<small id="pwdHelp" class="form-text text-muted text-center">Entre 6 et 20 caractères.</small>
-				</div>
-				<div class='form-group'>
-					<label for='numSU'>Numéro de téléphone *</label>
-					<input id='numSU' class='form-control w-75 inputSU' name='numSU' type="number" value=""/>
-					<small id="numHelp" class="form-text text-muted text-center"></small>
-				</div>
-				<p class="font-italic mt-4 text-center" id="errorIndicate">* champs obligatoires</p>
-				<input id="btnSbmtSU" class='btn btn-success btn-block mt-4 mb-3 w-75 text-light bg-dark' name='action' type='submit' value="Inscription" />
+				<input class='btn btn-block w-75 mt-4 mb-3 text-light bg-dark' name='action' type='submit' value='Connexion' />
 			</form>
 		</div>
 	</div>
