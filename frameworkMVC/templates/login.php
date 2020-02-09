@@ -1,5 +1,7 @@
 <?php
 
+include_once "./libs/modele.php";
+
 // Si la page est appelée directement par son adresse, on redirige en passant pas la page index
 if (basename($_SERVER["PHP_SELF"]) != "index.php")
 {
@@ -108,8 +110,8 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				<div class='form-group'>
 					<label for='pwdSU'>Mot de passe *</label>
 					<img src='./ressources/oeil.svg' id='eye'/>
-					<input id='pwdSU' class='form-control w-75 inputSU' name='pwdSU' type="password" value=""/>
-					<small id="pwdHelp" class="form-text text-muted text-center">Minimum 20 caractères</small>
+					<input id='pwdSU' class='form-control w-75 inputSU' name='pwdSU' type="password" maxlength="20" value=""/>
+					<small id="pwdHelp" class="form-text text-muted text-center">Minimum 6 caractères</small>
 				</div>
 				<div class='form-group'>
 					<label for='numSU'>Numéro de téléphone *</label>

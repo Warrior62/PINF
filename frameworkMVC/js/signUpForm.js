@@ -130,21 +130,4 @@ $("#numSU").keyup(function(){
 });
 
 
-$( function() {
-    $( "#dialog" ).dialog({
-      autoOpen: false,
-      show: {
-        effect: "blind",
-        duration: 500
-      },
-      hide: {
-        effect: "explode",
-        duration: 500
-      }
-    });
- 
-    $( "#btnSbmtSU" ).on( "click", function() {
-      $( "#dialog" ).dialog( "open" );
-    });
-  } );
 

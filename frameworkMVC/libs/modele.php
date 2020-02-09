@@ -91,7 +91,7 @@ function isMail($mail)
 function isPassword($pwd)
 {
 	// Vérifie la conformité du mot de passe saisi
-	// renvoie true si le mot de passe comporte entre 6 et 20 caractères
+	// renvoie true si le mot de passe comporte 6 ou plus 
 	// renvoie false sinon 
 	
 	if( strlen($pwd) >= 6 ) return true;
@@ -111,8 +111,14 @@ function alreadyExists($email)
 {
 	$SQL="SELECT email FROM users";
 	$tab = parcoursRs(SQLSelect($SQL));
-	
-	foreach ($tab as $value)
+	$i=0;	
+
+	foreach($tab as $ssTab) {
+		$emailTab[$i] = $ssTab["email"];
+		$i++;
+	}
+
+	foreach ($emailTab as $value)
 		if( $email == $value ) 
 			return true;
 	
