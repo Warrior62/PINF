@@ -58,7 +58,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 			<hr class="w-50">
 		</div>
 		<div class="col-4">
-			<p class="h4 text-center">Formulaire de connexion</p>
+			<p class="h4 text-center">Formulaire d'authentification</p>
 		</div>
 		<div class="col-4">
 			<hr class="w-50">
@@ -66,7 +66,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	</div>
 
 	<div class='container'>
-		<div class='row'>
+		<div class='row justify-content-between mt-4'>
 			<!-- Formulaire de connexion -->
 			<form class='form col-md-4' style="height:90%;margin-top:10vh">
 				<div class='text-center'>	
@@ -85,6 +85,39 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 					<span id='connected' style="font-size:70%" class="">Rester connecté</span>
 				</div>	
 				<input class='btn btn-block w-75 mt-4 mb-3 text-light bg-dark' name='action' type='submit' value='Connexion' />
+			</form>
+			<form action='controleur.php' method='POST' class='form col-md-5 mb-5' style="height:90%;margin-top:6vh">
+				<div class='text-center'>	
+					<img src='./ressources/inscription.svg' class='img-fluid w-25 mt-4' />
+				</div>
+				<div class='form-group mt-4'>
+					<label for='nomSU'>Nom *</label>
+					<input id='nomSU' class='form-control w-75 inputSU' name='nomSU' type="text" value=""/>
+					<small id="nomHelp" class="form-text text-muted text-center"></small>
+				</div>
+				<div class='form-group'>
+					<label for='prenomSU'>Prénom *</label>
+					<input id='prenomSU' class='form-control w-75 inputSU' name='prenomSU' type="text" value=""/>
+					<small id="prenomHelp" class="form-text text-muted text-center"></small>
+				</div>
+				<div class='form-group'>
+					<label for='mailSU'>Adresse mail *</label>
+					<input id='mailSU' class='form-control w-75 inputSU' name='mailSU' type="text" value=""/>
+					<small id="emailHelp" class="form-text text-muted text-center"></small>
+				</div>
+				<div class='form-group'>
+					<label for='pwdSU'>Mot de passe *</label>
+					<img src='./ressources/oeil.svg' id='eye'/>
+					<input id='pwdSU' class='form-control w-75 inputSU' name='pwdSU' type="password" value=""/>
+					<small id="pwdHelp" class="form-text text-muted text-center">Minimum 20 caractères</small>
+				</div>
+				<div class='form-group'>
+					<label for='numSU'>Numéro de téléphone *</label>
+					<input id='numSU' class='form-control w-75 inputSU' name='numSU' type="text" value=""/>
+					<small id="numHelp" class="form-text text-muted text-center"></small>
+				</div>
+				<p class="font-italic mt-4 text-center" id="errorIndicate">* champs obligatoires</p>
+				<input id="btnSbmtSU" class='btn btn-block mt-4 mb-3 w-75 text-light bg-dark' name='action' type='submit' value="Inscription" />
 			</form>
 		</div>
 	</div>

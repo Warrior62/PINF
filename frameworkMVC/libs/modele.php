@@ -94,7 +94,7 @@ function isPassword($pwd)
 	// renvoie true si le mot de passe comporte entre 6 et 20 caractères
 	// renvoie false sinon 
 	
-	if( strlen($pwd) >= 6 && strlen($pwd) <= 20 ) return true;
+	if( strlen($pwd) >= 6 ) return true;
 	else return false;
 }
 

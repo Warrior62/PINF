@@ -74,7 +74,11 @@ session_start();
 								setcookie("login",urlencode($mail) , time()+60*60*24*30);
 							    setcookie("passe",urlencode($pwd), time()+60*60*24*30);
 							}
-							else $isGoodForm = false;
+							else{
+								$alerte = "Erreur dans formulaire !";
+								$isGoodForm = false;
+								echo $alerte; 
+							} 
 						}
 					}
 				}
@@ -101,7 +105,7 @@ session_start();
 	// On redirige vers la page index avec les bons arguments
 
 	if( $isGoodForm ) header("Location:" . $urlBase . $addArgs);
-	else header("Location:" . $urlBase . "?view=login");
+	else header("Location:" . $urlBase . "?view=signUp");
 
 	// On écrit seulement après cette entête
 	ob_end_flush();

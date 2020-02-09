@@ -65,14 +65,13 @@ $("#mailSU").keyup(function(){
     var str = $(this).val();
 
     if( str == '' ) {
-        $("#emailHelp").html("");
-        $(this).css("border-color","lightgrey");
+        $("#emailHelp").text("Votre mail n'est pas renseigné.");
+        $(this).css("border-color","red");
     }
     else {
         if( (str.includes('.fr') || str.includes('.com') || str.includes('.net')) && str.includes('@') ) {
             $("#emailHelp").html("");
             $(this).css("border-color","green");
-            //cptGlobal++;
         }
         else {
             $("#emailHelp").text("Ceci n'est pas une adresse mail.");
@@ -87,11 +86,11 @@ $("#pwdSU").keyup(function(){
     var pwdLength = $(this).val().length;
 
     if( pwdLength == 0 ) {
-        $("#pwdHelp").text("Entre 6 et 20 caractères.");
+        $("#pwdHelp").text("Minimum 6 caractères.");
         $(this).css("border-color","red");
     } 
     else {
-        if( pwdLength >= 6 && pwdLength <= 20 ) {
+        if( pwdLength >= 6 ) {
             $("#pwdHelp").text("");
             $(this).css("border-color","green");
         }
@@ -129,4 +128,23 @@ $("#numSU").keyup(function(){
         }
     }
 });
+
+
+$( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 500
+      },
+      hide: {
+        effect: "explode",
+        duration: 500
+      }
+    });
+ 
+    $( "#btnSbmtSU" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  } );
 
