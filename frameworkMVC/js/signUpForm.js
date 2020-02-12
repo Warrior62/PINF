@@ -1,7 +1,10 @@
 var pwd = document.getElementById('pwdSU');
+var pwdSI = document.getElementById('pwd');
 var eye = document.getElementById('eye');
+var eyeSI = document.getElementById('eyeSI');
 
 eye.addEventListener('click',togglePass);
+eyeSI.addEventListener('click',togglePassSI);
 
 function togglePass()
 {
@@ -9,6 +12,14 @@ function togglePass()
 
     (pwd.type == 'password') ? pwd.type = 'text' :
     pwd.type = 'password';
+}
+
+function togglePassSI()
+{
+    eyeSI.classList.toggle('active');
+
+    (pwdSI.type == 'password') ? pwdSI.type = 'text' :
+    pwdSI.type = 'password';
 }
 
 // Capitalize the first letter of first name's and last name's input

@@ -24,12 +24,13 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 		form{
 			background-color: white;
 			border-radius: 20px;
-			border: 1.5px solid black;
+			border: 2px outset black;
 			width: 100%;
 			margin: auto;
 		}
 		label{
 			font-size:80%;
+			margin-left:12.5%;
 		}
 		input{
 			margin:auto;
@@ -38,6 +39,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 			font-size:90%;	
 		}
 		input[type="text"], input[type="password"]{
+			border-width: 2px;
 			border-radius: 10px;
 			border-color: lightgrey;
 			font-size: 80%;
@@ -45,10 +47,11 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 		div.container{
 			max-width: 60vw;
 		}
-		label{margin-left:12.5%}
+		small,label,#errorIndicate{color:white}
 		small{font-size:60%}
 		div+p{font-size: 65%}
-
+		#formSI{background-image:linear-gradient(#33004d,#53206D)}
+		#formSU{background-image: linear-gradient(#00215E, #002966)}
 		#eye:hover{cursor:pointer}
 	</style>
 </head>
@@ -70,7 +73,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	<div class='container'>
 		<div class='row justify-content-between mt-4'>
 			<!-- Formulaire de connexion -->
-			<form class='form col-md-4' style="height:90%;margin-top:10vh">
+			<form class='form col-md-4' style="height:90%;margin-top:10vh" id="formSI">
 				<div class='text-center'>	
 					<img src='./ressources/login.svg' class='img-fluid w-25 mt-4' />
 				</div>
@@ -80,43 +83,52 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				</div>
 				<div class='form-group'>
 					<label for='pwd'>Mot de passe</label>
-					<input id='pwd' class='form-control w-75' name="pwdSI" type="password" maxlength="20" value=""/>
+					<div class="input-group w-75" style="margin-left:2.1vw">
+						<input id='pwd' class='form-control w-50' name="pwdSI" type="password" maxlength="20" value=""/>
+						<div class="input-group-append">
+							<span class="input-group-text"><img src='./ressources/oeil.svg' id='eyeSI' class='img-fluid w-50 ml-2'/></span>
+						</div>
+					</div>
 				</div>
-				<div class='form-group'>
-					<label for='connected'><input type="checkbox"/></label>
-					<span id='connected' style="font-size:70%" name="remember">Rester connecté</span>
+				<div class='form-group form-check'>
+					<input type="checkbox" class="form-check-input ml-2" id="connected"/>
+					<label class="form-check-label" for='connected' style="font-size:70%" name="remember">Rester connecté</label>
 				</div>	
 				<input class='btn btn-block w-75 mt-4 mb-3 text-light bg-dark' name='action' type='submit' value='Connexion' />
 			</form>
-			<form action='controleur.php' method='POST' class='form col-md-5 mb-5' style="height:90%;margin-top:6vh">
+			<form action='controleur.php' method='POST' class='form col-md-5 mb-5' style="height:90%;margin-top:6vh" id="formSU">
 				<div class='text-center'>	
 					<img src='./ressources/inscription.svg' class='img-fluid w-25 mt-4' />
 				</div>
 				<div class='form-group mt-4'>
 					<label for='nomSU'>Nom *</label>
 					<input id='nomSU' class='form-control w-75 inputSU' name='nomSU' type="text" value=""/>
-					<small id="nomHelp" class="form-text text-muted text-center"></small>
+					<small id="nomHelp" class="form-text text-center"></small>
 				</div>
 				<div class='form-group'>
 					<label for='prenomSU'>Prénom *</label>
 					<input id='prenomSU' class='form-control w-75 inputSU' name='prenomSU' type="text" value=""/>
-					<small id="prenomHelp" class="form-text text-muted text-center"></small>
+					<small id="prenomHelp" class="form-text text-center"></small>
 				</div>
 				<div class='form-group'>
 					<label for='mailSU'>Adresse mail *</label>
 					<input id='mailSU' class='form-control w-75 inputSU' name='mailSU' type="text" value=""/>
-					<small id="emailHelp" class="form-text text-muted text-center"></small>
+					<small id="emailHelp" class="form-text text-center"></small>
 				</div>
 				<div class='form-group'>
 					<label for='pwdSU'>Mot de passe *</label>
-					<img src='./ressources/oeil.svg' id='eye'/>
-					<input id='pwdSU' class='form-control w-75 inputSU' name='pwdSU' type="password" maxlength="20" value=""/>
-					<small id="pwdHelp" class="form-text text-muted text-center">Minimum 6 caractères</small>
+					<div class="input-group w-75" style="margin-left:2.8vw">
+						<input id='pwdSU' class='form-control w-50 inputSU' name='pwdSU' type="password" maxlength="20" value=""/>
+						<div class="input-group-append">
+							<span class="input-group-text"><img src='./ressources/oeil.svg' id='eye' class='img-fluid w-50 ml-2'/></span>
+						</div>
+					</div>
+					<small id="pwdHelp" class="form-text text-center">Minimum 6 caractères</small>
 				</div>
 				<div class='form-group'>
 					<label for='numSU'>Numéro de téléphone *</label>
 					<input id='numSU' class='form-control w-75 inputSU' name='numSU' type="text" value=""/>
-					<small id="numHelp" class="form-text text-muted text-center"></small>
+					<small id="numHelp" class="form-text text-center"></small>
 				</div>
 				<p class="font-italic mt-4 text-center" id="errorIndicate">* champs obligatoires</p>
 				<input id="btnSbmtSU" class='btn btn-block mt-4 mb-3 w-75 text-light bg-dark' name='action' type='submit' value="Inscription" />
