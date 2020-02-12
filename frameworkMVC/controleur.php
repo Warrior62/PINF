@@ -31,8 +31,8 @@ session_start();
 			// Connexion //////////////////////////////////////////////////
 			case 'Connexion' :
 				// On verifie la presence des champs login et passe
-				if ($mailSI = valider("mail"))
-				if ($pwdSI = valider("pwd"))
+				if ($mailSI = valider("mailSI"))
+				if ($pwdSI = valider("pwdSI"))
 				{
 					// On verifie l'utilisateur, 
 					// et on crée des variables de session si tout est OK
@@ -71,8 +71,8 @@ session_start();
 								empecherAdmin($pwd);
 								$isGoodForm = true;
 
-								setcookie("login", urlencode($mail), time()+60*60*24*30);
-							    setcookie("passe", urlencode($pwd), time()+60*60*24*30);
+								setcookie("login", $mail, time()+60*60*24*30);
+							    setcookie("passe", $pwd, time()+60*60*24*30);
 							}
 							else $isGoodForm = false; 
 						}

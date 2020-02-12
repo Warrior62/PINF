@@ -11,9 +11,13 @@
 
     <style>
         fieldset.scheduler-border {
-            border: 1px groove #ddd !important;
+            /*background-color: #002966;*/
+            background-image: linear-gradient(#00215E, #002966);
+            border: 2px inset #ddd !important;
+            border-radius: 10px;
             padding: 0 0 1.4em 1.4em !important;
             margin: auto;
+            margin-top: 10vh;
             max-width: 75vw;
             -webkit-box-shadow:  0px 0px 0px 0px #000;
                 box-shadow:  0px 0px 0px 0px #000;
@@ -25,6 +29,14 @@
             width:auto;
             padding:0 10px;
             border-bottom:none;
+        }
+
+        .infosDiv{
+            background-color: #dfbf9f;
+        }
+
+        label, a{
+            color: white;
         }
 
     </style>
@@ -56,8 +68,7 @@
         for($i=1; $i<=$nbJwl; $i++){
             echo '
             <div class="container mb-5 mt-5">
-                <fieldset class="scheduler-border">
-                    <legend class="scheduler-border ">Bijou°<span id="jwlNum">'.$i.'</span></legend>
+                <fieldset class="scheduler-border">        
                     <div class="row">
                         <!-- Etat du bijou : div à gauche dans le fieldset -->
                         <div class="col-md-6">
@@ -75,15 +86,15 @@
                                         <label for="jwlState">Etat de la réparation</label>
                                     </div>
                                     <div class="col-sm">
-                                        <input id="jwlState" class="w-100 text-center text-warning" style="font-size:85%" type="text" value="En cours" disabled/>
+                                        <input id="jwlState" class="w-100 text-center text-danger" style="font-size:85%" type="text" value="En cours" disabled/>
                                     </div>
                                 </div>
                             </form>
                         </div>  
                         <!-- Informations sur le bijou : div à droite dans le fieldset -->
                         <div class="col-md-6 pl-4">
-                            <p class="h6 mt-4">Informations sur le bijou</p>
-                            <form class="border border-dark rounded-sm pt-3 pb-1 pl-3 pr-3 w-75">
+                            <p class="h6 mt-4" style="color:white">Informations sur le bijou</p>
+                            <form class="border border-dark rounded-sm pt-3 pb-1 pl-3 pr-3 w-75 infosDiv">
                                 <div class="form-group row">
                                     <div class="col-sm">
                                         <label for="jwlDesignation">Désignation</label>
@@ -110,7 +121,7 @@
                                 </div>
                             </form>
                         </div>
-                        <a class="mt-4 ml-4 font-italic text-decoration-none text-dark" style="font-size:90%" href="'.header("Location:../index.php?view=galery").'">Cliquez ici pour laisser un avis !</a>
+                        <a class="mt-4 ml-4 font-italic text-decoration-none" style="font-size:90%" href="'.header("Location:../index.php?view=galery").'">Cliquez ici pour laisser un avis !</a>
                     </div>
                 </fieldset>
             </div>';

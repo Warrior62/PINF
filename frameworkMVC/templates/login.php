@@ -84,7 +84,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				</div>
 				<div class='form-group'>
 					<label for='connected'><input type="checkbox"/></label>
-					<span id='connected' style="font-size:70%" class="">Rester connecté</span>
+					<span id='connected' style="font-size:70%" name="remember">Rester connecté</span>
 				</div>	
 				<input class='btn btn-block w-75 mt-4 mb-3 text-light bg-dark' name='action' type='submit' value='Connexion' />
 			</form>
