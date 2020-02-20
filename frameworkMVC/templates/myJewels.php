@@ -11,7 +11,6 @@
 
     <style>
         fieldset.scheduler-border {
-            /*background-color: #002966;*/
             background-image: linear-gradient(#00215E, #002966);
             border: 2px inset #ddd !important;
             border-radius: 10px;
