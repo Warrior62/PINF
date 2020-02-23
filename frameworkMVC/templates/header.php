@@ -19,7 +19,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 
 	<!-- Liaisons aux fichiers css de Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -37,7 +37,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
         height: 300px; /* only if you want fixed height */
         }
         .jumbotron {
-         background: url('ressources/backgroundAccueil1.jpg') center no-repeat;
+         background: center no-repeat;
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
@@ -51,7 +51,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 <!-- **** B O D Y **** -->
 <div id="background" class="jumbotron pt-1">
 <nav class="navbar sticky-top navbar-expand-lg static-top pl-4 pr-2 h-25">
-    <img src="images/logo.jpg" class="mb-auto" style="width:15%">
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="navbar-toggler-icon"></span>
     </button>

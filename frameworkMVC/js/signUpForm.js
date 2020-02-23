@@ -1,9 +1,7 @@
 var pwd = document.getElementById('pwdSU');
 var eye = document.getElementById('eye');
 
-
 eye.addEventListener('click',togglePass);
-eyeSI.addEventListener('click',togglePassSI);
 
 function togglePass()
 {

@@ -18,7 +18,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	<title>Forms</title>
 	<meta name="viewport" width="device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <style>
 		form{
@@ -47,12 +47,29 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 		div.container{
 			max-width: 60vw;
 		}
-		small,#errorIndicate{color:white}
-		small{font-size:60%}
-		div+p{font-size: 65%}
-		#formSI, #formSU{background-image:linear-gradient(#B8B8B8,#D8D8D8)}
+		small,#errorIndicate{
+			color:white;
+		}
+		small{
+			font-size:60%;
+		}
+		div+p{
+			font-size: 65%;
+		}
+		#formSI, #formSU{
+			background-image:linear-gradient(#B8B8B8,#D8D8D8);
+		}
+		#undoIcon{
+			display:none;
+			width: 10%;
+		}
 		
-		#eye:hover{cursor:pointer}
+		#eye:hover, .indications:hover{
+			cursor:pointer
+		}
+		.indications:hover{
+			text-decoration:underline
+		}
 	</style>
 </head>
 
@@ -73,9 +90,15 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	<br />
 
 	<div class='container'>
-		<div class='row justify-content-between'>
+		<div class='row justify-content-between mt-5'>
+
+			<img id='undoIcon' class='img-fluid' src='./ressources/undo.svg' title='Retour' />
+			
+			<p class='col-md-6 text-muted indications' id='jePossede'>Je possède déjà un compte ?</p>
+			<p class='col-md-5 text-muted indications' id='jePossedePas'>Je n'ai pas encore de compte ?</p>
+			
 			<!-- Formulaire de connexion -->
-			<form class='form col-md-4' style="height:90%;margin-top:10vh" id="formSI">
+			<form class='form col-md-4' style="height:90%;margin-top:3vh" id="formSI">
 				<div class='text-center'>	
 					<img src='./ressources/login.svg' class='img-fluid w-25 mt-4' />
 				</div>
@@ -94,7 +117,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				<input class='btn btn-block w-75 mt-4 mb-3 text-light bg-dark' name='action' type='submit' value='Connexion' />
 			</form>
 			<div class="col-md-3"></div>
-			<form action='controleur.php' method='POST' class='form col-md-5 mb-5' style="height:90%;margin-top:6vh" id="formSU">
+			<form action='controleur.php' method='POST' class='form col-md-5 mb-5' style="height:90%;margin-top:3vh" id="formSU">
 				<div class='text-center'>	
 					<img src='./ressources/inscription.svg' class='img-fluid w-25 mt-4' />
 				</div>
@@ -117,7 +140,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				</div>
 				<div class='form-group'>
 					<label for='pwdSU'>Mot de passe *</label>
-					<img src='./ressources/oeil.svg' id='eye' class='img-fluid ml-2'/>
+					<img src='./ressources/oeil.svg' id='eye' class='img-fluid ml-2' title='Afficher le mot de passe'/>
 					<input id='pwdSU' class='form-control w-75 inputSU' name='pwdSU' type="password" maxlength="20" value=""/>
 					<small id="pwdHelp" class="form-text text-center">Minimum 6 caractères</small>
 				</div>
@@ -132,8 +155,43 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 		</div>
 	</div>
 
-	
+
 	<script src="./js/signUpForm.js"></script>
+	<script>
+		$(document).on("mouseover","input",function(){
+			$(this).css("background-color","rgb(239,239,239)");
+		});
+
+		$(document).on("mouseout","input",function(){
+			$(this).css("background-color","white");
+		});
+
+		$(document).on("click","#undoIcon",function(){
+			$(location).attr("href","./index.php?view=login"); 
+		});
+
+		$(".indications").click(function(){
+			var toHide = $("#formSI, #formSU, #jePossedePas, #jePossede"); 
+			if( $(this).attr("id") == "jePossede" ) {
+				var form = $("#formSI");
+				var side = "left";
+				var sideRate = "7%";
+			}
+			else {
+				var form = $("#formSU");
+				var side = "right";
+				var sideRate = "17%";
+			} 
+			
+			toHide.fadeOut("fast");
+			toHide.queue(function(){
+				$("#undoIcon").fadeIn();
+				form.fadeIn("fast");
+				form.css(side,sideRate);
+				$(this).dequeue();
+			});
+		});
+	</script>
 
 </body>
 </html>
