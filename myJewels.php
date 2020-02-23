@@ -11,7 +11,6 @@
 
     <style>
         fieldset.scheduler-border {
-            /*background-color: #002966;*/
             background-image: linear-gradient(#00215E, #002966);
             border: 2px inset #ddd !important;
             border-radius: 10px;
@@ -59,6 +58,7 @@
 <?php
     $nbJwl = SQLGetChamp("SELECT COUNT(idBijoux) FROM bijou");
 
+    $numSav = parcoursRs(SQLSelect("SELECT numSav FROM bijou"));    
     $descJwl = parcoursRs(SQLSelect("SELECT descBijoux FROM bijou"));
     $labelJwl = parcoursRs(SQLSelect("SELECT designation FROM bijou"));
     $matJwl = parcoursRs(SQLSelect("SELECT materiau FROM bijou"));
@@ -78,7 +78,7 @@
                                         <label for="jwlNumSAV">Numéro SAV</label>
                                     </div>
                                     <div class="col-sm">
-                                        <input id="jwlNumSAV" class="w-100" type="text" disabled/>
+                                        <input id="jwlNumSAV" class="w-100" type="text" value="'.$numSav[$i-1]["numSav"].'" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group row mt-4">
