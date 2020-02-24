@@ -1,0 +1,124 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  lun. 24 fév. 2020 à 16:42
+-- Version du serveur :  5.7.24
+-- Version de PHP :  7.2.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `bijouxv2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commentaire`
+--
+
+DROP TABLE IF EXISTS `commentaire`;
+CREATE TABLE IF NOT EXISTS `commentaire` (
+  `idCommentaire` int(11) NOT NULL,
+  `idUser` int(11) DEFAULT NULL,
+  `descCommentaire` varchar(255) NOT NULL,
+  PRIMARY KEY (`idCommentaire`),
+  KEY `FK_idUser` (`idUser`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `galeriebijoux`
+--
+
+DROP TABLE IF EXISTS `galeriebijoux`;
+CREATE TABLE IF NOT EXISTS `galeriebijoux` (
+  `idBijoux` int(11) NOT NULL,
+  `pathBijoux` varchar(255) NOT NULL,
+  `descBijoux` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idBijoux`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `matiere`
+--
+
+DROP TABLE IF EXISTS `matiere`;
+CREATE TABLE IF NOT EXISTS `matiere` (
+  `idMatiere` char(3) NOT NULL,
+  `descMatiere` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idMatiere`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reparationbijoux`
+--
+
+DROP TABLE IF EXISTS `reparationbijoux`;
+CREATE TABLE IF NOT EXISTS `reparationbijoux` (
+  `idBijou` int(11) NOT NULL,
+  `idUser` int(11) DEFAULT NULL,
+  `idType` char(3) DEFAULT NULL,
+  `idMatiere` char(3) DEFAULT NULL,
+  `probleme` varchar(255) DEFAULT NULL,
+  `termine` int(11) NOT NULL,
+  `numeroSAV` int(11) NOT NULL,
+  PRIMARY KEY (`idBijou`),
+  KEY `Fk_idUser` (`idUser`),
+  KEY `Fk_idType` (`idType`),
+  KEY `Fk_idMatiere` (`idMatiere`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `type`
+--
+
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE IF NOT EXISTS `type` (
+  `idType` char(3) NOT NULL,
+  `descType` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idType`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `idUser` int(11) NOT NULL,
+  `genre` varchar(4) DEFAULT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `telephone` char(10) DEFAULT NULL,
+  `mdp` varchar(100) NOT NULL,
+  `admin` int(11) NOT NULL,
+  `blacklist` int(11) NOT NULL,
+  PRIMARY KEY (`idUser`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
