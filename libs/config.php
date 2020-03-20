@@ -12,8 +12,8 @@ $BDD_base="testdb_<nom>";
 
 // MACHINE LINUX 
 $BDD_host="localhost";
-$BDD_user="root";
-$BDD_password="Marie0212"; // vide sous windows
+$BDD_user="";
+$BDD_password=""; // vide sous windows
 $BDD_base="bijoux";
 
 ?>
