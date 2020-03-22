@@ -3,8 +3,8 @@ session_start();
 
 	include_once "libs/maLibUtils.php";
 	include_once "libs/maLibSQL.pdo.php";
-	include_once "libs/maLibSecurisation.php"; 
-	include_once "libs/modele.php"; 
+	include_once "libs/maLibSecurisation.php";
+	include_once "libs/modele.php";
 
 	$addArgs = "";
 
@@ -12,33 +12,19 @@ session_start();
 	{
 		ob_start ();
 		echo "Action = '$action' <br />";
-		// ATTENTION : le codage des caractères peut poser PB si on utilise des actions comportant des accents... 
-		// A EVITER si on ne maitrise pas ce type de problématiques
-
-		/* TODO: A REVOIR !!
-		// Dans tous les cas, il faut etre logue... 
-		// Sauf si on veut se connecter (action == Connexion)
-
-		if ($action != "Connexion") 
-			securiser("login");
-		*/
 
 		// Un paramètre action a été soumis, on fait le boulot...
 		switch($action)
 		{
-			
-			
-			// Connexion //////////////////////////////////////////////////
 			case 'Connexion' :
 				// On verifie la presence des champs login et passe
 				if ($mailSI = valider("mailSI"))
 				if ($pwdSI = valider("pwdSI"))
 				{
-					// On verifie l'utilisateur, 
-					// et on crée des variables de session si tout est OK
-					// Cf. maLibSecurisation
-					if (verifUser($mailSI,$pwdSI)) {
-						// tout s'est bien passé, doit-on se souvenir de la personne ? 
+					if ( isMail($mailSI) && isPassword($pwdSI) && alreadyExists($mailSI) )
+					{
+						$_SESSION['connecte']=true;
+						$isGoodForm = true;
 						if (valider("remember")) {
 							setcookie("mail",$mailSI , time()+60*60*24*30);
 							setcookie("pwd",$pwdSI, time()+60*60*24*30);
@@ -48,15 +34,12 @@ session_start();
 							setcookie("pwd","", time()-3600);
 							setcookie("remember",false, time()-3600);
 						}
-
-					}	
+					}
+					else $isGoodForm = false;
 				}
-
-				// On redirigera vers la page index automatiquement
 			break;
 
 			case 'Inscription' :
-				
 				if( $lName = valider("nomSU") )
 				if( $fName = valider("prenomSU") )
 				{
@@ -70,27 +53,16 @@ session_start();
 								SQLInsert("INSERT INTO users(nom,prenom,email,mdp) VALUES('$lName','$fName','$mail','$pwd')");
 								empecherAdmin($pwd);
 								$isGoodForm = true;
-
-								setcookie("login", $mail, time()+60*60*24*30);
-							    setcookie("passe", $pwd, time()+60*60*24*30);
 							}
-							else $isGoodForm = false; 
 						}
 					}
 				}
-				
 			break;
-				
 
 			case 'Logout' :
 				session_destroy();
 			break;
-
-
-
-
 		}
-
 	}
 
 	// On redirige toujours vers la page index, mais on ne connait pas le répertoire de base
@@ -105,15 +77,5 @@ session_start();
 
 	// On écrit seulement après cette entête
 	ob_end_flush();
-	
+
 ?>
-
-
-
-
-
-
-
-
-
-
