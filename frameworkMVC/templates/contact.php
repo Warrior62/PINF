@@ -3,7 +3,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<br><h1 id="texte" style="text-align:center">Nous contacter !</h1>
 		<style>
 			 #mapid{
   			   display: block;
@@ -28,7 +27,19 @@
 		</style>
 	</head>
 	<body>
-		<br><h id="texte">Pour obtenir des informations supplementaires, veuillez nous contacter en remplissant le formulaire ci-dessous.</h><br>
+		<div class="row text-center mt-5 w-75" style="margin:auto">
+			    <div class="col-4">
+			        <hr class="w-50">
+			    </div>
+			    <div class="col-4">
+			        <p class="h4 text-center">Nous contacter !</p>
+			    </div>
+			    <div class="col-4">
+			        <hr class="w-50">
+			    </div>
+		</div>
+		<br /><br /><br />
+		<h id="texte">Pour obtenir des informations supplementaires, veuillez nous contacter en remplissant le formulaire ci-dessous.</h><br>
 		<div id="contenu" class="d-flex flex-row">
 			<div id="formulaire" class="w-50">
 				<form>
@@ -64,7 +75,7 @@
 				  <div class="form-group row">
 				    <label for="text" class="col-md-3 col-form-label">Message</label>
 				    <div class="col-md-9">
-				      <textarea class="form-control" id="textarea" placeholder="Entrez votre message ici !"></textarea> 
+				      <textarea class="form-control" id="textarea" placeholder="Entrez votre message ici !"></textarea>
 				    </div>
 				  </div>
 				  <br>

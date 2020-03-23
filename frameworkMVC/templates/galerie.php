@@ -1,8 +1,8 @@
 <?php
 
-//C'est la propriété php_self qui nous l'indique : 
-// Quand on vient de index : 
-// [PHP_SELF] => /chatISIG/index.php 
+//C'est la propriété php_self qui nous l'indique :
+// Quand on vient de index :
+// [PHP_SELF] => /chatISIG/index.php
 // Quand on vient directement par le répertoire templates
 // [PHP_SELF] => /chatISIG/templates/accueil.php
 
@@ -15,8 +15,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 }
 
 ?>
-</body>
-<head>
+
     <script>
         $(document).ready(function () {
             $('.jcarousel')
@@ -56,20 +55,27 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 
     </script>
 
-
-
-</head>
 <div class="h-100">
-    <div class="text-center h1 ">Galerie</div>
+	<div class="row text-center mt-5 w-75" style="margin:auto">
+				<div class="col-4">
+						<hr class="w-50">
+				</div>
+				<div class="col-4">
+						<p class="h4 text-center">Galerie</p>
+				</div>
+				<div class="col-4">
+						<hr class="w-50">
+				</div>
+	</div>
     <div class="m-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis arcu auctor neque ullamcorper ornare at nec turpis. Vestibulum molestie lorem sed nulla condimentum volutpat. Praesent condimentum ut sapien vel fermentum. Ut gravida sagittis quam, ut dictum mauris facilisis ac. Etiam ligula ex, ultrices vitae ultrices ac, consectetur ac velit. Suspendisse potenti. Nunc mi nunc, condimentum a erat ac, aliquet interdum quam. In lobortis nec lectus id faucibus.</div>
     <div class="jcarousel-wrapper ml-5 mr-5">
         <div class="jcarousel" data-jcarousel="true">
             <ul style="left: -864px; top: 0px;">
 
-                <li style="width: 216px;"><img src="ressources/Bijoux/bj.jpg" alt="Image 2"></li>
-                <li style="width: 216px;"><img src="ressources/Bijoux/bj1.jpg" alt="Image 3"></li>
-                <li style="width: 216px;"><img src="ressources/Bijoux/bj2.jpg" alt="Image 4"></li>
-                <li style="width: 216px;"><img src="ressources/Bijoux/bijoux-bague.jpg" alt="Image 5"></li>
+                <li style="width: 216px;"><img src="./ressources/Bijoux/bj.jpg" alt="Image 2"></li>
+                <li style="width: 216px;"><img src="./ressources/Bijoux/bj1.jpg" alt="Image 3"></li>
+                <li style="width: 216px;"><img src="./ressources/Bijoux/bj2.jpg" alt="Image 4"></li>
+                <li style="width: 216px;"><img src="./ressources/Bijoux/bijoux-bague.jpg" alt="Image 5"></li>
             </ul>
 </div>
 

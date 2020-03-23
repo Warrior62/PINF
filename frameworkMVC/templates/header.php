@@ -95,12 +95,19 @@ include_once "libs/modele.php";
             ?>">
                 <a class="nav-link text-light" href="index.php?view=contact">Contact</a>
             </li>
+						<li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='myJewels')
+            {
+                echo('active');
+            }
+            ?>">
+                <a class="nav-link text-light" href="index.php?view=myJewels">Mes bijoux</a>
+            </li>
             <li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='reparerMonBijoux')
             {
                 echo('active');
             }
             ?>">
-                <a class="nav-link text-light" href="index.php?view=reparerMonBijoux">Réparer mon bijou</a>
+                <a class="nav-link text-light" href="index.php?view=reparationsBijoux">Réparer mon bijou</a>
             </li>
             <?php if (isset($_SESSION["connecte"]) && $_SESSION["connecte"] ) {
                 echo('
@@ -136,6 +143,3 @@ include_once "libs/modele.php";
     </div>
 </nav>
 </div>
-
-
-</body>

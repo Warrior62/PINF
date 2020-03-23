@@ -62,6 +62,20 @@ session_start();
 			case 'Logout' :
 				session_destroy();
 			break;
+
+			case 'Envoyer' :
+				if(isset($_GET["commentaire"]) && $_GET["commentaire"] !="" && $id=valider("id") && $note=valider("note")){
+					if (!($note>5 || $note<0)) {
+						$commentaire = addslashes($_GET["commentaire"]);
+						addCommentaire($id, $commentaire,$note);
+						$addArgs = "?view=galerie";
+					}
+					else
+						$addArgs = "?view=galerie&erreur=note";
+				}
+				else
+					$addArgs = "?view=galerie&erreur=vide";
+			break;
 		}
 	}
 
