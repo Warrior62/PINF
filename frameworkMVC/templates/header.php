@@ -15,21 +15,20 @@ include_once "libs/modele.php";
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- **** H E A D **** -->
-<head>	
+<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 
 	<!-- Liaisons aux fichiers css de Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="css/jcarousel.responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="js/jquery.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/jcarousel.responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="./js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-    <script type="text/javascript" src="js/jcarousel.responsive.js"></script>
-	
+  <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+  <script type="text/javascript" src="./js/jcarousel.responsive.js"></script>
+
     <style>
 
         html{
@@ -140,9 +139,3 @@ include_once "libs/modele.php";
 
 
 </body>
-
-
-
-
-
-
