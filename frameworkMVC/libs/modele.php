@@ -57,6 +57,18 @@ function isPassword($pwd)
 	else return false;
 }
 
+function isAdmin($pwd)
+{
+	// Vérifie si l'utilisateur est admin
+
+	$SQL="SELECT adm FROM users WHERE mdp='$pwd'";
+	
+	if ( SQLGetChamp($SQL) == 1 )
+		return true;
+	else
+		return false;
+}
+
 function isPhoneNb($pn)
 {
 	// Vérifie la conformité d'un numéro de téléphone saisi

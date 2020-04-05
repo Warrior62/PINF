@@ -120,14 +120,16 @@ include_once "libs/modele.php";
                 if (isset($_GET['view']) && $_GET['view'] == 'admin') {
                     echo('active');
                 }
+                if ( isAdmin($_SESSION['passe']) ) {
                     echo('\">
                     <a class="nav-link text-light" href="index.php?view=admin">Administrer</a>
                     </li>');
+                }
 
 
                     echo('
                 <li class="nav-item m-1 btn btn-outline-secondary">
-                    <a class="nav-link text-light" href="controleur.php?action=deconnecter">Se déconnecter</a>
+                    <a class="nav-link text-light" href="controleur.php?action=Logout">Se déconnecter</a>
                 </li>');
 
             }

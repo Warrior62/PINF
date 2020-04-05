@@ -24,6 +24,7 @@ session_start();
 					if ( isMail($mailSI) && isPassword($pwdSI) && alreadyExists($mailSI) )
 					{
 						$_SESSION['connecte']=true;
+						$_SESSION['passe']=$pwdSI;
 						$isGoodForm = true;
 						if (valider("remember")) {
 							setcookie("mail",$mailSI , time()+60*60*24*30);
