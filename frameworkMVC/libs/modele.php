@@ -125,3 +125,19 @@ function getTypeBijou(){
 	$SQL = "SELECT nomType FROM `type` ";
 	return parcoursRs(SQLSelect($SQL));
 }
+
+
+/************* COMMENTAIRES *******************/
+//Permet de récupérer les commentaires avec leur id ainsi que le pseudo de la personne l'ayant envoyé directement depuis la bdd
+function getCommentaire()
+{
+	$SQL='SELECT u.username,c.idCommentaire,c.commentaire FROM commentaire c, users u WHERE u.idUser=c.idUser';
+	return parcoursRs(SQLSelect($SQL));
+}
+
+//Permet de supprimer un commentaire avec un id entré en paramètres
+function deleteCommentaire($id)
+{
+	$SQL="DELETE FROM commentaire WHERE idCommentaire='$id'";
+	SQLDelete($SQL);
+}
