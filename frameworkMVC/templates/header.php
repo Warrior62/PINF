@@ -11,7 +11,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 include_once "libs/modele.php";
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- **** H E A D **** -->
@@ -21,11 +21,16 @@ include_once "libs/modele.php";
 	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 
 	<!-- Liaisons aux fichiers css de Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="./css/jcarousel.responsive.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="./js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="./js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
   <script type="text/javascript" src="./js/jcarousel.responsive.js"></script>
 

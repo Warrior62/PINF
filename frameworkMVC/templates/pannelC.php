@@ -1,8 +1,5 @@
 <head>
 	<title>Pannel Commentaires</title>
-	<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <script>
 	/*
@@ -23,15 +20,20 @@
 	}
 		
 </script>
-<style>
-	body
-	{
-		font-family: 'Comfortaa', cursive;
-	}
-</style>
-<body>
-	<br>
-	<div style="text-align:center;font-size:150%;">------ Voici la liste des différents commentaires ------</div><br><br>
+
+
+	<div class="row text-center mt-5 mb-5 w-75" style="margin:auto">
+		<div class="col-4">
+			<hr class="w-50">
+		</div>
+		<div class="col-4">
+			<p class="h4 text-center">Voici la liste des différents commentaires</p>
+		</div>
+		<div class="col-4">
+			<hr class="w-50">
+		</div>
+	</div>
+	
 	<div id="divCommentaires" style="padding-left: 10px;padding-right:10px;">
 			<table class="table">
 			    <thead class="thead-light">
@@ -56,7 +58,6 @@
 				?>
 			</table>
 	</div>
-</body>
 
 
 

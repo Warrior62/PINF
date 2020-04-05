@@ -2,16 +2,20 @@
 <html>
  <head>
   <title>PANNEL GALERIE</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>        
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
  </head>
- <body>
+
   <div class="container">
-   <br />
-   <center><h3>----- Voici le contenu de votre galerie -----</h3></center>
+   <div class="row text-center mt-5 mb-5 w-75" style="margin:auto">
+		<div class="col-4">
+			<hr class="w-50">
+		</div>
+		<div class="col-4">
+			<p class="h4 text-center">Voici le contenu de votre galerie</p>
+		</div>
+		<div class="col-4">
+			<hr class="w-50">
+		</div>
+	</div>
    <br />
    
    <form action="uploadimg.php" class="dropzone" id="dropzoneFrom">
@@ -29,8 +33,7 @@
    <br />
    <br />
   </div>
- </body>
-</html>
+ 
 
 <script>
 
