@@ -15,9 +15,17 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 }
 
 ?>
-    <div class="page-header">
-      <h1 class="text-center">Présentation</h1>
-    </div>
+    <div class="row text-center mt-5 w-75" style="margin:auto">
+      <div class="col-4">
+         <hr class="w-50">
+      </div>
+      <div class="col-4">
+         <p class="h4 text-center">Présentation</p>
+      </div>
+      <div class="col-4">
+         <hr class="w-50">
+      </div>
+   </div>
 
 
     <p class="lead ml-5 mt-5">Bienvenue chez L'Atelier du Bijoutier</p>

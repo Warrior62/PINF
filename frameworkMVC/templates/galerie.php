@@ -67,14 +67,14 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 						<hr class="w-50">
 				</div>
 	</div>
-    <div class="m-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis arcu auctor neque ullamcorper ornare at nec turpis. Vestibulum molestie lorem sed nulla condimentum volutpat. Praesent condimentum ut sapien vel fermentum. Ut gravida sagittis quam, ut dictum mauris facilisis ac. Etiam ligula ex, ultrices vitae ultrices ac, consectetur ac velit. Suspendisse potenti. Nunc mi nunc, condimentum a erat ac, aliquet interdum quam. In lobortis nec lectus id faucibus.</div>
+    <div class="m-5">Bienvenue dans notre galerie ! Vous trouverez ci-dessous des images de type de réparation que je peux réaliser pour vous. 
+    J'espère que cela vous donnera envie de me joindre pour la réparation de votre bague, collier ou bracelet préféré ! </div>
     <div class="jcarousel-wrapper ml-5 mr-5">
         <div class="jcarousel" data-jcarousel="true">
             <ul style="left: -864px; top: 0px;">
-
-                <li style="width: 216px;"><img src="./ressources/Bijoux/bj.jpg" alt="Image 2"></li>
-                <li style="width: 216px;"><img src="./ressources/Bijoux/bj1.jpg" alt="Image 3"></li>
-                <li style="width: 216px;"><img src="./ressources/Bijoux/bj2.jpg" alt="Image 4"></li>
+                <li style="width: 216px;"><img src="./ressources/Bijoux/bj.jpg" alt="Image 2"/></li>
+                <li style="width: 216px;"><img src="./ressources/Bijoux/bj1.jpg" alt="Image 3"/></li>
+                <li style="width: 216px;"><img src="./ressources/Bijoux/bj2.jpg" alt="Image 4"/></li>
                 <li style="width: 216px;"><img src="./ressources/Bijoux/bijoux-bague.jpg" alt="Image 5"></li>
             </ul>
 </div>
@@ -94,7 +94,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
             for($i=0;$i<$arr_length;$i++) {
                 if ( $commentaires[$i]["commentaire"]!="") {
                     echo("<div class='d-flex flex-row bg-light ml-5 mr-5 mb-2'>");
-                    echo("<img src='ressources/user_logo.png' class='m-3' style='height: 50px;width:50px'/>");
+                    echo("<img src='./ressources/user_logo.png' class='m-3' style='height: 50px;width:50px'/>");
                     echo("<div class='d-flex flex-column'>");
                     echo("<div class='mr-auto mb-auto mt-auto'>" . $commentaires[$i]["commentaire"] . "</div>");
                     echo("<div class='d-flex flex-row m-align-items-center'>");

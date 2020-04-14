@@ -29,6 +29,7 @@ include_once "libs/modele.php";
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="./js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
