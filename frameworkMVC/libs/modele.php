@@ -78,24 +78,6 @@ function isPhoneNb($pn)
 	else return false;
 }
 
-function alreadyExists($email)
-{
-	$SQL="SELECT email FROM users";
-	$tab = parcoursRs(SQLSelect($SQL));
-	$i=0;
-
-	foreach($tab as $ssTab) {
-		$emailTab[$i] = $ssTab["email"];
-		$i++;
-	}
-
-	foreach ($emailTab as $value)
-		if( $email == $value )
-			return true;
-
-	return false;
-}
-
 /************* GALERIE *******************/
 function getCommentaires()
 {

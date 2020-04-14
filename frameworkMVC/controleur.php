@@ -21,7 +21,7 @@ session_start();
 				if ($mailSI = valider("mailSI"))
 				if ($pwdSI = valider("pwdSI"))
 				{
-					if ( isMail($mailSI) && isPassword($pwdSI) && alreadyExists($mailSI) )
+					if ( isMail($mailSI) && isPassword($pwdSI) && verifUser($mailSI,$pwdSI) )
 					{
 						$_SESSION['connecte']=true;
 						$_SESSION['passe']=$pwdSI;
@@ -43,17 +43,19 @@ session_start();
 			case 'Inscription' :
 				if( $lName = valider("nomSU") )
 				if( $fName = valider("prenomSU") )
-				{
+				{ 
 					if( $mail = valider("mailSU") )
 					if( $pwd = valider("pwdSU") )
 					{
 						if( $num = valider("numSU") )
 						{
-							if( isName($lName) && isName($fName) && isMail($mail) && isPassword($pwd) && isPhoneNb($num) && !alreadyExists($mail) )
+							if( isName($lName) && isName($fName) && isMail($mail) && isPassword($pwd) && isPhoneNb($num) && !verifUser($mail,$pwd) )
 							{
 								SQLInsert("INSERT INTO users(nom,prenom,email,mdp) VALUES('$lName','$fName','$mail','$pwd')");
 								empecherAdmin($pwd);
 								$isGoodForm = true;
+								$_SESSION['connecte']=true;
+								$_SESSION['passe']=$pwd;
 							}
 						}
 					}

@@ -115,7 +115,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 					<label class="form-check-label" for='connected' style="font-size:70%" name="remember">Rester connecté</label>
 				</div>
 				<div class='text-center'>
-					<button class='btn btn-sm btn-outline-secondary w-75 mt-4 mb-3' name='action' type='submit'>Connexion</button>
+					<input class='btn btn-sm btn-outline-secondary w-75 mt-4 mb-3' name='action' type='submit' value='Connexion'/>
 				</div>
 			</form>
 			<div class="col-md-3"></div>
@@ -155,7 +155,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				</div>
 				<p class="font-italic mt-4 text-center" id="errorIndicate">* champs obligatoires</p>
 				<div class='text-center'>
-					<button id="btnSbmtSU" class='btn btn-sm btn-outline-secondary mt-4 mb-3 w-75' name='action' type='submit'>Inscription</button>
+					<input id="btnSbmtSU" class='btn btn-sm btn-outline-secondary mt-4 mb-3 w-75' name='action' type='submit' value='Inscription'/>
 				</div>
 			</form>
 		</div>
