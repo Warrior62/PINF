@@ -3,7 +3,7 @@
 //Ce fichier permet l'envoi d'un fichier dans le dossier $folder_name
 //upload.php
 
-$folder_name = './ressources/';
+$folder_name = './images_galerie/';
 
 if(!empty($_FILES))
 {
@@ -20,7 +20,7 @@ if(isset($_POST["name"]))
 
 $result = array();
 
-$files = scandir('ressources');
+$files = scandir('images_galerie');
 
 $output = '<div class="row">';
 

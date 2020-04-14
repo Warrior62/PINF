@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html>
- <head>
   <title>PANNEL GALERIE</title>
- </head>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<body>
   <div class="container">
-   <div class="row text-center mt-5 mb-5 w-75" style="margin:auto">
-		<div class="col-4">
-			<hr class="w-50">
-		</div>
-		<div class="col-4">
-			<p class="h4 text-center">Voici le contenu de votre galerie</p>
-		</div>
-		<div class="col-4">
-			<hr class="w-50">
-		</div>
-	</div>
-   <br />
-   
-   <form action="uploadimg.php" class="dropzone" id="dropzoneFrom">
+    <div class="row text-center mt-5 mb-5 w-75" style="margin:auto">
+      <div class="col-4">
+        <hr class="w-50">
+      </div>
+      <div class="col-4">
+        <p class="h4 text-center">Voici le contenu de votre galerie</p>
+      </div>
+      <div class="col-4">
+        <hr class="w-50">
+      </div>
+    </div>
+    <br />
     
-   </form>
-   
-   <br />
-   <br />
-   <div text-align="center">
-    <button type="button" class="btn btn-info" id="submit-all">Envoyer</button>
-   </div>
-   <br />
-   <br />
-   <div id="idGalerie"></div>
-   <br />
-   <br />
+    <form action="uploadimg.php" class="dropzone" id="dropzoneFrom"></form>
+    
+    <br /><br />
+
+    <div text-align="center">
+      <button type="button" class="btn btn-outline-secondary" id="submit-all">Envoyer</button>
+    </div>
+
+    <br /><br />
+
+    <div id="idGalerie"></div>
+    <br /><br />
   </div>
  
-
+</body>
 <script>
 
 $(document).ready(function(){

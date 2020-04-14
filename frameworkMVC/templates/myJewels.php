@@ -121,7 +121,7 @@
                                 </div>
                             </form>
                         </div>
-                        <a class="mt-4 ml-4 font-italic text-decoration-none" style="font-size:90%" href="'.header("Location:../index.php?view=galery").'">Cliquez ici pour laisser un avis !</a>
+                        <a class="mt-4 ml-4 font-italic text-decoration-none" style="font-size:90%" href="./index.php?view=galerie">Cliquez ici pour laisser un avis !</a>
                     </div>
                 </fieldset>
             </div>';
