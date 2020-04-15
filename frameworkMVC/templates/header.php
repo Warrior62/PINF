@@ -18,7 +18,7 @@ include_once "libs/modele.php";
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+	<link rel="icon" href="./images/logo.gif">
 
 	<!-- Liaisons aux fichiers css de Bootstrap -->
   <link rel="stylesheet" href="./css/bootstrap.min.css"/>

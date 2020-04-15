@@ -13,8 +13,9 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	header("Location:../index.php?view=accueil");
 	die("");
 }
-
 ?>
+   
+
     <div class="row text-center mt-5 w-75" style="margin:auto">
       <div class="col-4">
          <hr class="w-50">

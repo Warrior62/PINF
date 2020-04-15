@@ -138,6 +138,11 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 					</div>
 				</div>
 				<div class='form-group'>
+					<label for='pseudoSU'>Pseudo *</label>
+					<input id='pseudoSU' class='form-control w-75 inputSU' name='pseudoSU' type="text" value=""/>
+					<small id="pseudoHelp" class="form-text text-center"></small>
+				</div>
+				<div class='form-group'>
 					<label for='mailSU'>Adresse mail *</label>
 					<input id='mailSU' class='form-control w-75 inputSU' name='mailSU' type="text" value=""/>
 					<small id="emailHelp" class="form-text text-center"></small>

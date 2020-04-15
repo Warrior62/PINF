@@ -23,9 +23,12 @@ session_start();
 				{
 					if ( isMail($mailSI) && isPassword($pwdSI) && verifUser($mailSI,$pwdSI) )
 					{
+						$tab = getNomPrenom($mailSI);
 						$_SESSION['connecte']=true;
 						$_SESSION['passe']=$pwdSI;
 						$_SESSION['mail']=$mailSI;
+						$_SESSION['nom']=$tab[0];
+						$_SESSION['prenom']=$tab[1];
 						$isGoodForm = true;
 						if (valider("remember")) {
 							setcookie("mail",$mailSI , time()+60*60*24*30);
@@ -49,15 +52,19 @@ session_start();
 					if( $pwd = valider("pwdSU") )
 					{
 						if( $num = valider("numSU") )
+						if( $pseudo = valider("pseudoSU") )
 						{
-							if( isName($lName) && isName($fName) && isMail($mail) && isPassword($pwd) && isPhoneNb($num) && !verifUser($mail,$pwd) )
+							if( isName($lName) && isName($fName) && isName($pseudo) && isMail($mail) && isPassword($pwd) && isPhoneNb($num) && !verifUser($mail,$pwd) )
 							{
-								SQLInsert("INSERT INTO users(nom,prenom,email,mdp) VALUES('$lName','$fName','$mail','$pwd')");
+								SQLInsert("INSERT INTO users(nom,prenom,email,mdp,username) VALUES('$lName','$fName','$mail','$pwd','$pseudo')");
 								empecherAdmin($pwd);
 								$isGoodForm = true;
 								$_SESSION['connecte']=true;
 								$_SESSION['passe']=$pwd;
 								$_SESSION['mail']=$mail;
+								$_SESSION['pseudo']=$pseudo;
+								$_SESSION['nom']=$lName;
+								$_SESSION['prenom']=$fName;
 							}
 						}
 					}

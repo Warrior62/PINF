@@ -17,13 +17,14 @@ function uppercase(str) {
    return str.split(/\s+/).map(s => s.charAt(0).toUpperCase() + s.substring(1).toLowerCase()).join(" ");
 }
 
-// Analyse the user's lastname and firstname's field
+// Analyse the user's lastname, firstname's field and username's field
 function namesInput(bool, str) {
     var nLength = str.length;
     var label = "";
 
     if( bool == 0 ) label = "nom";
-    else label = "prenom";
+    else if( bool == 1 ) label = "prenom";
+    else label = "pseudo";
 
     if( nLength == 0 ) {
         $("#"+label+"Help").text("Votre "+label+" n'est pas renseigné.");
@@ -58,6 +59,12 @@ $("#nomSU").keyup(function(){
 $("#prenomSU").keyup(function(){
     var str = $(this).val();
     namesInput(1, str);
+});
+
+// Show user wether he wrote in the first name input
+$("#pseudoSU").keyup(function(){
+    var str = $(this).val();
+    namesInput(2, str);
 });
 
 
