@@ -1,9 +1,9 @@
-  <title>PANNEL GALERIE</title>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+  <title>Pannel Galerie</title>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
-<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+ 
   <div class="container">
     <div class="row text-center mt-5 mb-5 w-75" style="margin:auto">
       <div class="col-4">
@@ -16,23 +16,25 @@
         <hr class="w-50">
       </div>
     </div>
-    <br />
-    
-    <form action="uploadimg.php" class="dropzone" id="dropzoneFrom"></form>
-    
-    <br /><br />
+   <br />
+   
+   <form action="uploadimg.php" class="dropzone" id="dropzoneFrom"></form>
+   
+   <br /><br />
 
-    <div text-align="center">
-      <button type="button" class="btn btn-outline-secondary" id="submit-all">Envoyer</button>
-    </div>
+   <div class="text-center">
+    <button type="button" class="btn btn-info" id="submit-all">Envoyer</button>
+   </div>
 
-    <br /><br />
+   <br /><br />
 
-    <div id="idGalerie"></div>
-    <br /><br />
+   <div id="idGalerie"></div>
+
+   <br /><br />
   </div>
  
-</body>
+
+
 <script>
 
 $(document).ready(function(){

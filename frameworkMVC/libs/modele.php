@@ -78,6 +78,8 @@ function isPhoneNb($pn)
 	else return false;
 }
 
+
+
 /************* GALERIE *******************/
 function getCommentaires()
 {
@@ -122,16 +124,31 @@ function getTypeBijou(){
 
 
 /************* COMMENTAIRES *******************/
-//Permet de récupérer les commentaires avec leur id ainsi que le pseudo de la personne l'ayant envoyé directement depuis la bdd
+// Permet de récupérer les commentaires avec leur id ainsi que le pseudo de la personne l'ayant envoyé directement depuis la bdd
 function getCommentaire()
 {
 	$SQL='SELECT u.username,c.idCommentaire,c.commentaire FROM commentaire c, users u WHERE u.idUser=c.idUser';
 	return parcoursRs(SQLSelect($SQL));
 }
 
-//Permet de supprimer un commentaire avec un id entré en paramètres
+// Permet de supprimer un commentaire avec un id entré en paramètres
 function deleteCommentaire($id)
 {
 	$SQL="DELETE FROM commentaire WHERE idCommentaire='$id'";
 	SQLDelete($SQL);
+}
+
+
+/************* CONTACT *******************/
+
+function getNomPrenom($email)
+{
+	$SQL = "SELECT nom,prenom,email FROM users";
+	$tab = parcoursRs(SQLSelect($SQL));
+
+	foreach($tab as $ssTab){
+		if($ssTab[email] == $email){
+			return array($ssTab[nom], $ssTab[prenom]);
+		}
+	}
 }

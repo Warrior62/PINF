@@ -82,7 +82,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 <a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true">‹</a>
 <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true">›</a>
 
-<p class="jcarousel-pagination" data-jcarouselpagination="true"><a href="#1">1</a><a href="#2">2</a><a href="#3">3</a><a href="#4">4</a><a href="#5" class="">5</a><a href="#6" class="active">6</a></p>
+<p class="jcarousel-pagination" data-jcarouselpagination="true"><a href="#1" class="active">1</a><a href="#2">2</a><a href="#3">3</a><a href="#4">4</a><a href="#5">5</a><a href="#6">6</a></p>
 </div>
     <div class="wrapper d-flex mb-5 flex-column">
     <div class="m-5 h4">

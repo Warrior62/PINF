@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <style>
 		#mapid{
 			display: block;
@@ -31,6 +32,7 @@
 </div>
 <br /><br /><br />
 <h id="texte" class="ml-5">Pour obtenir des informations supplémentaires, veuillez nous contacter en remplissant le formulaire ci-dessous.</h><br>
+<?php $nomEtPrenom = getNomPrenom($_SESSION['mail']) ?>
 <div id="contenu" class="d-flex flex-row">
 	<div id="formulaire" class="w-50">
 		<form>
@@ -38,21 +40,21 @@
 			<div class="form-group row">
 			<label for="text" class="col-md-3 col-form-label">Nom :</label>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="text">
+				<input type="text" class="form-control" id="text" value="<?= $nomEtPrenom[0] ?>">
 			</div>
 			</div>
 			<br>
 			<div class="form-group row">
 			<label for="text" class="col-md-3 col-form-label">Prénom :</label>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="text">
+				<input type="text" class="form-control" id="text" value="<?= $nomEtPrenom[1] ?>">
 			</div>
 			</div>
 			<br>
 			<div class="form-group row">
 			<label for="text" class="col-md-3 col-form-label">Adresse Mail :</label>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="text">
+				<input type="text" class="form-control" id="text" value="<?= $_SESSION['mail'] ?>">
 			</div>
 			</div>
 			<br>

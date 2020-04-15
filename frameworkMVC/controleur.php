@@ -25,6 +25,7 @@ session_start();
 					{
 						$_SESSION['connecte']=true;
 						$_SESSION['passe']=$pwdSI;
+						$_SESSION['mail']=$mailSI;
 						$isGoodForm = true;
 						if (valider("remember")) {
 							setcookie("mail",$mailSI , time()+60*60*24*30);
@@ -56,6 +57,7 @@ session_start();
 								$isGoodForm = true;
 								$_SESSION['connecte']=true;
 								$_SESSION['passe']=$pwd;
+								$_SESSION['mail']=$mail;
 							}
 						}
 					}

@@ -150,7 +150,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 				</div>
 				<div class='form-group'>
 					<label for='numSU'>Numéro de téléphone *</label>
-					<input id='numSU' class='form-control w-75 inputSU' name='numSU' type="text" value=""/>
+					<input id='numSU' class='form-control w-75 inputSU' name='numSU' type="text" maxlength="10" value=""/>
 					<small id="numHelp" class="form-text text-center"></small>
 				</div>
 				<p class="font-italic mt-4 text-center" id="errorIndicate">* champs obligatoires</p>

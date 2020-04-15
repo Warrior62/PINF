@@ -56,14 +56,17 @@
 <p class="text-center mt-5 mb-5" style="margin:auto;max-width:75vw">Sur cette page, vous pouvez consulter l'historique de vos réparations et éventuellement poster un avis sur celle(s) effectuée(s).</p>
 
 <?php
-    $nbJwl = SQLGetChamp("SELECT COUNT(idBijoux) FROM bijou");
-
+    $SQL = "SELECT COUNT(b.idBijoux) FROM bijou b, users u WHERE u.idUser=b.idUser AND u.email='$_SESSION[mail]'";
+    $nbJwl = SQLGetChamp($SQL);
+    
     $numSav = parcoursRs(SQLSelect("SELECT numSav FROM bijou"));    
     $descJwl = parcoursRs(SQLSelect("SELECT descBijoux FROM bijou"));
     $labelJwl = parcoursRs(SQLSelect("SELECT designation FROM bijou"));
     $matJwl = parcoursRs(SQLSelect("SELECT materiau FROM bijou"));
-
-    if( $nbJwl==0 ) echo '<p class="h6 text-center">(Aucune réparation n\'a été effectuée.)</p>';
+    $extra="";
+    
+    if( empty($_SESSION['mail']) ) $extra = "Connectez-vous pour consulter vos réparations.";
+    if( $nbJwl==0 ) echo '<p class="h6 text-center">(Aucune réparation n\'a été effectuée. '.$extra.')</p>';
     else {
         for($i=1; $i<=$nbJwl; $i++){
             echo '
