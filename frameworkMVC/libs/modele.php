@@ -107,19 +107,31 @@ function insertRéparationBijou($idUser,$type,$matiere,$probleme)
 	$id = SQLGetChamp($SQL)+1;
 	$SQL = "SELECT max(numeroSAV) FROM reparationbijoux";
 	$SAV = SQLGetChamp($SQL)+1;
-	$SQL = "INSERT INTO `reparationbijoux`(`idBijou`, `idUser`, `idType`, `idMatiere`, `probleme`, `termine`, `numeroSAV`) VALUES ('$id','$idUser','$type','$matiere','$probleme','0','$SAV')";
+	$SQL = "INSERT INTO `reparationbijoux`(`idUser`, `idType`, `idMatiere`, `probleme`, `termine`, `numeroSAV`) VALUES ('$idUser','$type','$matiere','$probleme','0','$SAV')";
 	return SQLInsert($SQL);
 
 }
 
 function getMatiere(){
-	$SQL = "SELECT nomMatiere FROM `matiere` ";
+	$SQL = "SELECT descMatiere FROM `matiere` ";
 	return parcoursRs(SQLSelect($SQL));
 }
 
 function getTypeBijou(){
-	$SQL = "SELECT nomType FROM `type` ";
+	$SQL = "SELECT descType FROM `type` ";
 	return parcoursRs(SQLSelect($SQL));
+}
+
+function getIdType($accessoire)
+{
+	$SQL = "SELECT idType FROM type WHERE descriptionType=$accessoire";
+	return SQLGetChamp($SQL);	
+}
+
+function getIdMatiere($accessoire)
+{
+	$SQL = "SELECT idMatiere FROM matiere WHERE descriptionMatiere=$accessoire";
+	return SQLGetChamp($SQL);	
 }
 
 
@@ -140,7 +152,7 @@ function deleteCommentaire($id)
 
 
 /************* CONTACT *******************/
-
+// Permet de récupérer le nom et prénom de la personne en fonction de son adresse mail
 function getNomPrenom($email)
 {
 	$SQL = "SELECT nom,prenom,email FROM users";

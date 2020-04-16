@@ -6,7 +6,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	die("");
 }
  ?>
-
+<title>Réparer mon bijou</title>
 <div class="row text-center mt-5 w-75" style="margin:auto">
 	<div class="col-4">
 		<hr class="w-50">
@@ -77,12 +77,11 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 		<fieldset id="rendez-vous">
 			<div class="form-group">
 				<label for="inputDate">Prendre un rendez-vous</label>
-				<input type="date" name="" id="inputDate"class="form-control" required/>
-
+				<input type="date" name="rdvBijou" id="inputDate"class="form-control" required/>
 			</div>
 		</fieldset>
 
-		<button type="submit" name="action" class='btn btn-outline-secondary w-50 mt-5'>Valider</button>
+		<button type="submit" name="action" class='btn btn-outline-secondary w-50 mt-5' value='Reparer'>Valider</button>
 	</form>
 	</div>
 	<div class="col-7">

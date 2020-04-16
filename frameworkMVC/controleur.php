@@ -71,6 +71,22 @@ session_start();
 				}
 			break;
 
+			/*case 'Reparer':
+				if( $typeBijou = valider("select_type") )
+				if( $matiereBijou = valider("select_matiere") )
+				{ 
+					if( $pbBijou = valider("problemeBijou") )
+					{
+						$mailBijou = $_SESSION['mail'];
+						$passeBijou = $_SESSION['passe'];
+						$idUser = verifUserBdd($mailBijou,$passeBijou);
+						$idTypeBijou = getIdType($typeBijou);
+						$idMatiereBijou = getIdMatiere($matiereBijou);
+						SQLInsert("INSERT INTO `reparationbijoux`(`idUser`, `idType`, `idMatiere`, `probleme`, `termine`, `numeroSAV`) VALUES ('$idUser','$idTypeBijou','$idMatiereBijou','$pbBijou','0',1111111)");
+					}
+				}
+			break;*/
+
 			case 'Logout' :
 				session_destroy();
 			break;
