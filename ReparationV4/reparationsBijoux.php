@@ -159,7 +159,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	 				<div class="form-group" id="divProbleme">
 	 					<label for="probleme">Problème(s) sur le bijou</label>
 	 					<textarea class="form-control couleur" id="probleme" name="problemeBijou" rows="3"></textarea>
-	 					<small class="form-text text-center">Il reste 255 caractères</small>
+	 					<small class="form-text text-center">Il reste 255 caractère(s)</small>
 	 				</div>
 	 		</fieldset>
 	 		<fieldset id="rendez-vous">
