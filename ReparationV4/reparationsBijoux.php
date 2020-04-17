@@ -51,7 +51,8 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 					$("#probleme").css({
 						borderColor : 'grey',
 					});
-}
+					$("#divProbleme small").html("Il reste 255 caractère(s)");
+				}
 				if($("#probleme").val().length < 256 && $("#probleme").val().length != 0)
 				{
 					
