@@ -98,7 +98,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 			<p class='col-md-5 text-muted indications' id='jePossedePas'>Je n'ai pas encore de compte ?</p>
 
 			<!-- Formulaire de connexion -->
-			<form action='controleur.php' method='POST' class='form col-md-4' style="height:90%;margin-top:3vh" id="formSI">
+			<form action='controleur.php' method='POST' class='form col-md-4' style="height:40%;margin-top:3vh" id="formSI">
 				<div class='text-center'>
 					<img src='./ressources/login.svg' class='img-fluid w-25 mt-4' />
 				</div>
@@ -121,7 +121,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 			<div class="col-md-3"></div>
 
 			<!-- Formulaire d'inscription -->
-			<form action='controleur.php' method='POST' class='form col-md-5 mb-5' style="height:90%;margin-top:3vh" id="formSU">
+			<form action='controleur.php' method='POST' class='form col-md-5 mb-5' style="height:7s0%;margin-top:3vh" id="formSU">
 				<div class='text-center'>
 					<img src='./ressources/inscription.svg' class='img-fluid w-25 mt-4' />
 				</div>
