@@ -66,7 +66,7 @@
     $extra="";
     
     if( empty($_SESSION['mail']) ) $extra = "Connectez-vous pour consulter vos réparations.";
-    if( $nbJwl==0 ) echo '<p class="h6 text-center">(Aucune réparation n\'a été effectuée. '.$extra.')</p>';
+    if( $nbJwl==0 ) echo '<p class="h6 text-center">(Aucune réparation n\'a été effectuée. '.$extra.')</p><div class="mb-5"><br/></div>';
     else {
         for($i=1; $i<=$nbJwl; $i++){
             echo '
