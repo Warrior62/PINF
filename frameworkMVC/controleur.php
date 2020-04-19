@@ -28,7 +28,8 @@
  						$_SESSION['passe']=$pwdSI;
  						$_SESSION['mail']=$mailSI;
  						$_SESSION['nom']=$tab[0];
- 						$_SESSION['prenom']=$tab[1];
+						$_SESSION['prenom']=$tab[1];
+						$_SESSION['idUser']=verifUserBdd($mailSI,$pwdSI);
  						$addArgs = "?view=accueil";
  						if (valider("remember")) {
  							setcookie("mail",$mailSI , time()+60*60*24*30);
@@ -73,21 +74,18 @@
  				}
  			break;
 
- 			/*case 'Reparer':
- 				if( $typeBijou = valider("select_type") )
- 				if( $matiereBijou = valider("select_matiere") )
- 				{ 
- 					if( $pbBijou = valider("problemeBijou") )
- 					{
- 						$mailBijou = $_SESSION['mail'];
- 						$passeBijou = $_SESSION['passe'];
- 						$idUser = verifUserBdd($mailBijou,$passeBijou);
- 						$idTypeBijou = getIdType($typeBijou);
- 						$idMatiereBijou = getIdMatiere($matiereBijou);
- 						SQLInsert("INSERT INTO `reparationbijoux`(`idUser`, `idType`, `idMatiere`, `probleme`, `termine`, `numeroSAV`) VALUES ('$idUser','$idTypeBijou','$idMatiereBijou','$pbBijou','0',1111111)");
- 					}
- 				}
- 			break;*/
+ 			case 'Réparer' :
+				if($problemeBijou=valider("problemeBijou") and $type=valider("idType") and $matiere=valider("idMatiere")){
+					$date=$_POST["date"];
+					$idUser=$_POST["idUser"];
+					$idType = getIDType($type);
+					$idMatiere = getIDMatiere($matiere);
+					
+					insertReparationBijou($idUser,$idType,$idMatiere,$problemeBijou,$date);
+					$addArgs = "?view=myJewels";
+				}
+				else $addArgs = "?view=reparationsBijoux";
+			break;
 
  			case 'Logout' :
  				session_destroy();

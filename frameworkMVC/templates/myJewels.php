@@ -7,7 +7,7 @@
     <meta charset='UTF-8'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
     
-    <title>Mes Bijoux</title>
+    <title>Mes bijoux</title>
 
     <style>
         fieldset.scheduler-border {
@@ -56,19 +56,35 @@
 <p class="text-center mt-5 mb-5" style="margin:auto;max-width:75vw">Sur cette page, vous pouvez consulter l'historique de vos réparations et éventuellement poster un avis sur celle(s) effectuée(s).</p>
 
 <?php
-    $SQL = "SELECT COUNT(b.idBijoux) FROM bijou b, users u WHERE u.idUser=b.idUser AND u.email='$_SESSION[mail]'";
+    $SQL = "SELECT COUNT(b.idReparation) FROM reparationbijoux b, users u WHERE u.idUser=b.idUser AND u.email='$_SESSION[mail]'";
     $nbJwl = SQLGetChamp($SQL);
     
-    $numSav = parcoursRs(SQLSelect("SELECT numSav FROM bijou"));    
-    $descJwl = parcoursRs(SQLSelect("SELECT descBijoux FROM bijou"));
-    $labelJwl = parcoursRs(SQLSelect("SELECT designation FROM bijou"));
-    $matJwl = parcoursRs(SQLSelect("SELECT materiau FROM bijou"));
+    $numSav = parcoursRs(SQLSelect("SELECT numeroSAV FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));    
+    $descJwl = parcoursRs(SQLSelect("SELECT probleme FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
+    $idType = parcoursRs(SQLSelect("SELECT idType FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
+    $idMatiere = parcoursRs(SQLSelect("SELECT idMatiere FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
+    $idReparation = parcoursRs(SQLSelect("SELECT idReparation FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
     $extra="";
+
+    //"SELECT termine FROM reparationbijoux WHERE idUser='$_SESSION['idUser']'"
     
+    $matJwl = getMatiereById($idMatiere);
+    $labelJwl = getTypeById($idType);
+    $etatReparation = getEtatReparationById($idReparation);
+
     if( empty($_SESSION['mail']) ) $extra = "Connectez-vous pour consulter vos réparations.";
     if( $nbJwl==0 ) echo '<p class="h6 text-center">(Aucune réparation n\'a été effectuée. '.$extra.')</p><div class="mb-5"><br/></div>';
     else {
         for($i=1; $i<=$nbJwl; $i++){
+            if( $etatReparation[$i-1]==1 ){
+                $colorRep = "success";
+                $repEstate = "Terminé";
+            } 
+            else{
+                $colorRep = "danger";
+                $repEstate = "En cours";
+            } 
+
             echo '
             <div class="container mb-5 mt-5">
                 <fieldset class="scheduler-border">        
@@ -81,7 +97,7 @@
                                         <label for="jwlNumSAV">Numéro SAV</label>
                                     </div>
                                     <div class="col-sm">
-                                        <input id="jwlNumSAV" class="w-100" type="text" value="'.$numSav[$i-1]["numSav"].'" disabled/>
+                                        <input id="jwlNumSAV" class="w-100" type="text" value="'.$numSav[$i-1]["numeroSAV"].'" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group row mt-4">
@@ -89,7 +105,7 @@
                                         <label for="jwlState">Etat de la réparation</label>
                                     </div>
                                     <div class="col-sm">
-                                        <input id="jwlState" class="w-100 text-center text-danger" style="font-size:85%" type="text" value="En cours" disabled/>
+                                        <input id="jwlState" class="w-100 text-center text-'.$colorRep.'" style="font-size:85%" type="text" value="'.$repEstate.'" disabled/>
                                     </div>
                                 </div>
                             </form>
@@ -100,10 +116,10 @@
                             <form class="border border-dark rounded-sm pt-3 pb-1 pl-3 pr-3 w-75 infosDiv">
                                 <div class="form-group row">
                                     <div class="col-sm">
-                                        <label for="jwlDesignation">Désignation</label>
+                                        <label for="jwlType">Type</label>
                                     </div>
                                     <div class="col-sm">
-                                        <input id="jwlDesignation" class="w-100" type="text" value="'.$labelJwl[$i-1]["designation"].'" disabled/>
+                                        <input id="jwlType" class="w-100" type="text" value="'.$labelJwl[$i-1].'" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -111,7 +127,7 @@
                                         <label for="jwlMateriau">Matériau</label>
                                     </div>
                                     <div class="col-sm">
-                                        <input id="jwlMateriau" class="w-100" type="text" value="'.$matJwl[$i-1]["materiau"].'" disabled/>
+                                        <input id="jwlMateriau" class="w-100" type="text" value="'.$matJwl[$i-1].'" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -119,7 +135,7 @@
                                         <label for="jwlProbleme">Problème</label>
                                     </div>
                                     <div class="col-sm">
-                                        <textarea id="jwlProbleme" class="w-100" disabled>'.$descJwl[$i-1]["descBijoux"].'</textarea>
+                                        <textarea id="jwlProbleme" class="w-100" disabled>'.$descJwl[$i-1]["probleme"].'</textarea>
                                     </div>
                                 </div>
                             </form>

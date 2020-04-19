@@ -99,14 +99,14 @@ include_once "libs/modele.php";
             ?>">
                 <a class="nav-link text-light" href="index.php?view=contact">Contact</a>
             </li>
-						<li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='myJewels')
+            <li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='myJewels')
             {
                 echo('active');
             }
             ?>">
                 <a class="nav-link text-light" href="index.php?view=myJewels">Mes bijoux</a>
             </li>
-            <li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='reparerMonBijoux')
+            <li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='reparationsBijoux')
             {
                 echo('active');
             }

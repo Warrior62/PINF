@@ -79,7 +79,6 @@
 				</div>
 				</div>
 				<br>
-
 				<!-- Penser à ajouter un capcha pour sécuriser le site des bots et des spams -->
 			</form>
 		</div>

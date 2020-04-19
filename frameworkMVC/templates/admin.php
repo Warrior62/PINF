@@ -49,6 +49,9 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
     		<div class="col">
       			<input style="margin-bottom:50px;" type="button" class='btn btn-secondary btn-lg btn-block' onclick="location.href='index.php?view=pannelC'" value='Cliquez ici pour gérer les commentaires.'/>
     		</div>
+			<div class="col">
+				<input style="margin-bottom:50px;" type="button" class="btn btn-secondary btn-lg btn-block" onclick="location.href='index.php?view=pannelR'" value="Cliquez ici pour modifier l'état d'une réparation."/>
+			</div>
   		</div>
   	</div>
   </center>

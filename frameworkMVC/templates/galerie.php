@@ -49,7 +49,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 
     </script>
 
-<div class="h-100">
+<div>
 	<div class="row text-center mt-5 w-75" style="margin:auto">
 				<div class="col-4">
 						<hr class="w-50">
@@ -78,7 +78,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 
 <p class="jcarousel-pagination" data-jcarouselpagination="true"><a href="#1" class="active">1</a><a href="#2">2</a><a href="#3">3</a><a href="#4">4</a><a href="#5">5</a><a href="#6">6</a></p>
 </div>
-    <div class="wrapper d-flex mb-5 flex-column">
+    <div class="d-flex mb-5 flex-column">
     <div class="m-5 h4">
         Avis / Commentaires :
     </div>
@@ -109,7 +109,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
                 echo("<div class='text-danger ml-5'>Veuillez rentrez un commentaire pour envoyer votre commentaire.</div>");
 
 
-            if (isset($_SESSION["connecte"]) && $_SESSION["connecte"] && isset($_SESSION["id"])){
+            if (isset($_SESSION["connecte"]) && $_SESSION["connecte"] && isset($_SESSION["idUser"])){
                 echo("<div class='d-flex flex-row'><div class=\"m-5 h4\">Laissez nous un commentaire :</div>
                         <div class='d-flex flex-row text-center justify-content-center align-items-center'>
                          <div class=\"star-rating\">
@@ -122,7 +122,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
                         </div></div></div>
                         <form action=\"controleur.php\">
                         <input id='note_envoyer' type='hidden' name='note' value='0'>
-                        <input type='hidden' name='id' value='".$_SESSION["id"]."'>
+                        <input type='hidden' name='id' value='".$_SESSION["idUser"]."'>
                         <textarea class=\"ml-5 mr-5 w-75\" name=\"commentaire\" style=\"margin-bottom: 100px;height:200px\" maxlength='250'></textarea><br>
                         <input type=\"submit\" name=\"action\" class=\"ml-5 btn btn-secondary\" style=\"margin-bottom: 100px;margin-top: -100px\" value=\"Envoyer\"></form>");
             }

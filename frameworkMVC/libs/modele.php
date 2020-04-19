@@ -97,41 +97,93 @@ function addCommentaire($id,$commentaire,$note)
 {
 	echo("id=".$id."comm=".$commentaire);
 	$SQL="UPDATE users SET commentaire='".$commentaire."',note='".$note."' WHERE idUser='$id'";
-	return SQLUpdate($SQL);
+	SQLUpdate($SQL);
+}
+
+
+/************* PANNEL REPARATION *******************/
+function infosReparation()
+{
+	$SQL="SELECT idReparation,numeroSAV,probleme,termine FROM reparationbijoux";
+	return parcoursRs(SQLSelect($SQL));
+}
+
+function updateReparation($id)
+{
+	$SQL="UPDATE reparationbijoux SET termine=1 WHERE idReparation='$id'";
+	SQLUpdate($SQL);
+}
+
+function deleteReparation($id)
+{
+	$SQL="DELETE FROM reparationbijoux WHERE idReparation='$id'";
+	SQLDelete($SQL);
 }
 
 /************* REPARATION DE MON BIJOU *******************/
-function insertRéparationBijou($idUser,$type,$matiere,$probleme)
+function insertReparationBijou($idUser,$idType,$idMatiere,$probleme,$date)
 {
-	$SQL = "SELECT max(idBijou) FROM reparationbijoux";
+	$SQL = "SELECT max(idReparation) FROM reparationbijoux";
+	if($SQL==NULL)
+		$SQL=0;
 	$id = SQLGetChamp($SQL)+1;
 	$SQL = "SELECT max(numeroSAV) FROM reparationbijoux";
+	if($SQL==NULL)
+		$SQL=0;
 	$SAV = SQLGetChamp($SQL)+1;
-	$SQL = "INSERT INTO `reparationbijoux`(`idUser`, `idType`, `idMatiere`, `probleme`, `termine`, `numeroSAV`) VALUES ('$idUser','$type','$matiere','$probleme','0','$SAV')";
+	$SQL = "INSERT INTO `reparationbijoux`(`idReparation`, `idUser`, `idType`, `idMatiere`, `probleme`, `termine`, `numeroSAV`,`date`) VALUES('$id','$idUser','$idType','$idMatiere','$probleme','0','$SAV','$date')";
 	return SQLInsert($SQL);
 
 }
 
 function getMatiere(){
-	$SQL = "SELECT descMatiere FROM `matiere` ";
+	$SQL = "SELECT descriptionMatiere FROM `matiere` ";
 	return parcoursRs(SQLSelect($SQL));
 }
 
 function getTypeBijou(){
-	$SQL = "SELECT descType FROM `type` ";
+	$SQL = "SELECT descriptionType FROM `type` ";
 	return parcoursRs(SQLSelect($SQL));
 }
 
-function getIdType($accessoire)
-{
-	$SQL = "SELECT idType FROM type WHERE descriptionType=$accessoire";
-	return SQLGetChamp($SQL);	
+function getMatiereById($id){
+	for($j=0; $j<count($id); $j++) $new[$j] = $id[$j]["idMatiere"];
+	for($i=0; $i<count($new); $i++)
+	{
+		$tab_SQL = "SELECT descriptionMatiere FROM `matiere` WHERE idMatiere=$new[$i]";
+		$final[$i] = SQLGetChamp($tab_SQL);
+	}
+	return $final;
 }
 
-function getIdMatiere($accessoire)
-{
-	$SQL = "SELECT idMatiere FROM matiere WHERE descriptionMatiere=$accessoire";
-	return SQLGetChamp($SQL);	
+function getTypeById($id){
+	for($j=0; $j<count($id); $j++) $new[$j] = $id[$j]["idType"];
+	for($i=0; $i<count($new); $i++)
+	{
+		$tab_SQL = "SELECT descriptionType FROM `type` WHERE idType=$new[$i]";
+		$final[$i] = SQLGetChamp($tab_SQL);
+	}
+	return $final;
+}
+
+function getEtatReparationById($id){
+	for($j=0; $j<count($id); $j++) $new[$j] = $id[$j]["idReparation"];
+	for($i=0; $i<count($new); $i++)
+	{
+		$tab_SQL = "SELECT termine FROM `reparationbijoux` WHERE idReparation=$new[$i]";
+		$final[$i] = SQLGetChamp($tab_SQL);
+	}
+	return $final;
+}
+
+function getIDType($descType){
+	$SQL = "SELECT `idType` FROM `type` WHERE `descriptionType` LIKE '$descType'";
+	return SQLGetChamp($SQL);
+}
+
+function getIDMatiere($descMatiere){
+	$SQL = "SELECT `idMatiere` FROM `matiere` WHERE `descriptionMatiere` LIKE '$descMatiere'";
+	return SQLGetChamp($SQL);
 }
 
 
@@ -139,7 +191,7 @@ function getIdMatiere($accessoire)
 // Permet de récupérer les commentaires avec leur id ainsi que le pseudo de la personne l'ayant envoyé directement depuis la bdd
 function getCommentaire()
 {
-	$SQL='SELECT u.username,c.idCommentaire,c.commentaire FROM commentaire c, users u WHERE u.idUser=c.idUser';
+	$SQL='SELECT u.username,c.idCommentaire,c.descCommentaire FROM commentaire c, users u WHERE u.idUser=c.idUser';
 	return parcoursRs(SQLSelect($SQL));
 }
 
