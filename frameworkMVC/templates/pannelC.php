@@ -6,16 +6,17 @@
 	 * Cette fonction permet de supprimer un commentaire avec une vérification à l'aide de son id en faisant appel à la fonction deleteCommentaire($id) dans le modele.php
 	 */
 	function supprimerCommentaire(id){
+		//console.log("idUser = " + id);
 		if(confirm('Voulez-vous vraiment supprimer ce commentaire ?')){
-  			console.log("Tu as cliqué sur oui / l'id cliqué est : " + id);
-  			document.cookie = "id="+id;
-  			<?php if (isset($_COOKIE["id"])) 
-  				deleteCommentaire($_COOKIE["id"]);
+  			console.log("Tu as cliqué sur oui / l'idUser cliqué est : " + id);
+  			<?php 
+				  updateCommentaire(id);
+				  //deleteCommentaire(id);
   			?>
   			window.location.reload(true);
   		}
   		else{
-  			console.log("Tu as cliqué sur non / l'id cliqué est : " + id);
+  			console.log("Tu as cliqué sur non / l'idUser cliqué est : " + id);
   		}
 	}
 		
@@ -35,28 +36,30 @@
 	</div>
 	
 	<div id="divCommentaires" style="padding-left: 10px;padding-right:10px;">
-			<table class="table">
-			    <thead class="thead-light">
-				    <tr>
-				        <th scope="col">#</th>
-				        <th scope="col">Pseudo</th>
-				        <th scope="col">Commentaire</th>
-				        <th scope="col"></th>
-				    </tr>
-			    </thead>
-			    <?php 
-					$commentaire=getCommentaire();
-					for ($i=0;$i<count($commentaire);$i++){
+		<table class="table">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col">Identifiant utilisateur</th>
+					<th scope="col">Pseudo</th>
+					<th scope="col">Commentaire</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<?php 
+				$commentaire=getCommentaire();
+				for ($i=0;$i<count($commentaire);$i++){
+					if( $commentaire[$i]["commentaire"]!="" ){
 						echo("<tr>
-				   	  	  <th scope='row'>" . $commentaire[$i]['idCommentaire'] . "</th>
-				      	  <td>" . $commentaire[$i]['username'] . "</td>
-				      	  <td>" . $commentaire[$i]['commentaire'] . "</td>
-				      	  <td><input class='btn btn-outline-danger' type='button' name='Supprimer' value='Supprimer' id='" . $commentaire[$i]['idCommentaire'] . "' onclick='supprimerCommentaire(this.id);'/></td>
-				      	  </tr>"
-				        );
+								<th scope='row'>" . $commentaire[$i]['idUser'] . "</th>
+							<td>" . $commentaire[$i]['username'] . "</td>
+							<td>" . $commentaire[$i]['commentaire'] . "</td>
+							<td><input class='btn btn-outline-danger' type='button' name='Supprimer' value='Supprimer' id='" . $commentaire[$i]['idUser'] . "' onclick='supprimerCommentaire(this.id);'/></td>
+							</tr>"
+						);
 					}
-				?>
-			</table>
+				}
+			?>
+		</table>
 	</div>
 
 

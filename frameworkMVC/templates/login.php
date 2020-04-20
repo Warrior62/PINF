@@ -65,10 +65,16 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 		}
 
 		#eye:hover, .indications:hover, #undoIcon{
-			cursor:pointer
+			cursor: pointer;
 		}
 		.indications:hover{
-			text-decoration:underline
+			text-decoration: underline;
+		}
+		#alertPanel{
+			margin-left: 20vw;
+			width: 35vw;
+			margin: auto;
+			display: none;
 		}
 	</style>
 </head>
@@ -88,6 +94,10 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	</div>
 
 	<br />
+
+	<!--<div id='alertPanel'></div>
+
+	<br />-->
 
 	<div class='container'>
 		<div class='row justify-content-between mt-5'>
@@ -115,7 +125,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 					<label class="form-check-label" for='connected' style="font-size:70%" name="remember">Rester connecté</label>
 				</div>
 				<div class='text-center'>
-					<input class='btn btn-sm btn-outline-secondary w-75 mt-4 mb-3' name='action' type='submit' value='Connexion'/>
+					<input class='btn btn-sm btn-outline-secondary w-75 mt-4 mb-3' name='action' type='submit' value='Connexion' id='btnConnexion'/>
 				</div>
 			</form>
 			<div class="col-md-3"></div>
@@ -169,6 +179,25 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 
 	<script src="./js/signUpForm.js"></script>
 	<script>
+		/*$("#btnConnexion").click(function(){
+			if( $('#mail').length==0 || $('#pwd').length==0 ){
+				
+				var alertBox = '';
+				//alertBox += '<div class="alert alert-danger mt-2" role="alert">';
+				alertBox += '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+				alertBox += '<span aria-hidden="true">&times;</span>';
+				alertBox += '</button>';
+				alertBox += '<h4 class="alert-heading">Erreur !</h4>';
+				alertBox += '<p>L\'adresse mail ou le mot de passe saisi est incorrecte.</p>';
+				alertBox += '<hr>';
+				alertBox += '<p class="mb-0">Veuillez réessayer.</p>';
+				//alertBox += '</div>';
+
+				var alertPanel = $("#alertPanel"); // On selection le div alertPanel deja présent dans la page (mais vide)
+				alertPanel.append(alertBox); // On le remplit de notre div
+				alertPanel.focus(); // On lui donne le focus
+			}
+		});*/
 		$(document).on("mouseover","input",function(){
 			$(this).css("background-color","rgb(239,239,239)");
 		});

@@ -17,7 +17,7 @@ include_once "libs/modele.php";
 <!-- **** H E A D **** -->
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+    <title>L'Atelier du Bijoutier</title>
 	<link rel="icon" href="./images/logo.gif">
 
 	<!-- Liaisons aux fichiers css de Bootstrap -->
@@ -92,12 +92,12 @@ include_once "libs/modele.php";
             ?>">
                 <a class="nav-link text-light" href="index.php?view=galerie">Galerie</a>
             </li>
-            <li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='contact')
+            <li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='reparationsBijoux')
             {
                 echo('active');
             }
             ?>">
-                <a class="nav-link text-light" href="index.php?view=contact">Contact</a>
+                <a class="nav-link text-light" href="index.php?view=reparationsBijoux">Réparer mon bijou</a>
             </li>
             <li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='myJewels')
             {
@@ -106,12 +106,12 @@ include_once "libs/modele.php";
             ?>">
                 <a class="nav-link text-light" href="index.php?view=myJewels">Mes bijoux</a>
             </li>
-            <li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='reparationsBijoux')
+            <li class="nav-item m-1 btn btn-outline-secondary <?php if (isset($_GET['view']) && $_GET['view']=='contact')
             {
                 echo('active');
             }
             ?>">
-                <a class="nav-link text-light" href="index.php?view=reparationsBijoux">Réparer mon bijou</a>
+                <a class="nav-link text-light" href="index.php?view=contact">Contact</a>
             </li>
             <?php if (isset($_SESSION["connecte"]) && $_SESSION["connecte"] ) {
                 echo('
@@ -124,28 +124,34 @@ include_once "libs/modele.php";
                     <a class="nav-link text-light" href="index.php?view=admin">Administrer</a>
                     </li>');
                 }
-
-
-                    echo('
+                
+                
+                echo('
                 <li class="nav-item m-1 btn btn-outline-secondary">
-                    <a class="nav-link text-light" href="controleur.php?action=Logout">Se déconnecter</a>
+                <a class="nav-link text-light" href="controleur.php?action=Logout">Se déconnecter</a>
                 </li>');
-
+                
             }
             else {
-
-                    echo('
+                
+                echo('
                 <li class="nav-item m-1 btn btn-outline-secondary float-right');
-                    if (isset($_GET['view']) && $_GET['view'] == 'login') {
-                        echo('active');
-                    }
-                    echo('">
-                    <a class="nav-link text-light " href="index.php?view=login">Connexion / Inscription</a>
+                if (isset($_GET['view']) && $_GET['view'] == 'login') {
+                    echo('active');
+                }
+                echo('">
+                <a class="nav-link text-light " href="index.php?view=login">Connexion / Inscription</a>
                 </li>');
-
+                
             }
             ?>
         </ul>
+        <?php
+        //////////////////////////////////////////////////////////////
+            if (isset($_SESSION["connecte"]) && $_SESSION["connecte"] )
+                echo("<h6>Bienvenue ".$_SESSION['prenom']." !</h6>");
+        /////////////////////////////////////////////////////////////
+        ?>
     </div>
 </nav>
 </div>

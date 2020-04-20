@@ -15,8 +15,8 @@ if( empty($_SESSION['connecte']) ){
 		        <hr class=\"w-50\">
 		    </div>
 	</div><br/><br/>";
-	echo "<h4 class=\"text-center\">Merci de vous connecter ou créer un compte pour accéder à ce service</h4>";
-	echo "<p class=\"text-center\">Ne bouger pas ! Vous allez être redirigé vers la page de connexion d'ici 5 secondes</p>";
+	echo "<h4 class=\"text-center\">Merci de vous connecter ou créer un compte pour accéder à ce service.</h4>";
+	echo "<p class=\"text-center\">Ne bougez pas ! Vous allez être redirigé vers la page de connexion d'ici 5 secondes ...</p>";
 
 
 	echo "<meta http-equiv=\"refresh\" content=\"5;URL=?view=login\">";

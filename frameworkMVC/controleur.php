@@ -92,17 +92,19 @@
  			break;
 
  			case 'Envoyer' :
- 				if(isset($_GET["commentaire"]) && $_GET["commentaire"] !="" && $id=valider("id") && $note=valider("note")){
- 					if (!($note>5 || $note<0)) {
- 						$commentaire = addslashes($_GET["commentaire"]);
- 						addCommentaire($id, $commentaire,$note);
- 						$addArgs = "?view=galerie";
- 					}
- 					else
- 						$addArgs = "?view=galerie&erreur=note";
- 				}
- 				else
- 					$addArgs = "?view=galerie&erreur=vide";
+				if(isset($_GET["commentaire"]) && $_GET["commentaire"]!="" && isset($_GET["id"]) && $note=valider("note")){
+					if (!($note>5 || $note<0)) {
+						$commentaire = addslashes($_GET["commentaire"]);
+						echo($_GET["id"]);
+						addCommentaire($_GET["id"], $commentaire,$note);
+						addCommentaireInCommentaire($_GET["id"], $commentaire,$note);
+						$addArgs = "?view=galerie";
+					}
+					else
+						$addArgs = "?view=galerie&erreur=note";
+				}
+				else
+					$addArgs = "?view=galerie&erreur=vide";
  			break;
  		}
  	}

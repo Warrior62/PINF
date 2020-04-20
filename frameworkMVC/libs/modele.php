@@ -100,6 +100,12 @@ function addCommentaire($id,$commentaire,$note)
 	SQLUpdate($SQL);
 }
 
+function addCommentaireInCommentaire($id,$commentaire,$note)
+{
+	$SQL="INSERT INTO commentaire(idUser,descriptionCommentaire,note) VALUES('$id','$commentaire','$note')";
+	SQLInsert($SQL);
+}
+
 
 /************* PANNEL REPARATION *******************/
 function infosReparation()
@@ -191,16 +197,33 @@ function getIDMatiere($descMatiere){
 // Permet de récupérer les commentaires avec leur id ainsi que le pseudo de la personne l'ayant envoyé directement depuis la bdd
 function getCommentaire()
 {
-	$SQL='SELECT u.username,c.idCommentaire,c.descCommentaire FROM commentaire c, users u WHERE u.idUser=c.idUser';
+	//$SQL='SELECT u.username,c.idCommentaire,c.descriptionCommentaire FROM commentaire c, users u WHERE u.idUser=c.idUser';
+	$SQL="SELECT idUser,username,commentaire FROM users";
 	return parcoursRs(SQLSelect($SQL));
 }
 
 // Permet de supprimer un commentaire avec un id entré en paramètres
-function deleteCommentaire($id)
+/*function deleteCommentaire($id)
 {
 	$SQL="DELETE FROM commentaire WHERE idCommentaire='$id'";
 	SQLDelete($SQL);
+}*/
+
+/*function getIdUserByIdCom($idCom)
+{
+	echo "idCom=".$idCom;
+	$SQL="SELECT idUser FROM commentaire WHERE idCommentaire='$idCom'";
+	echo "	res=".$res = SQLGetChamp($SQL);
+	return SQLGetChamp($SQL);
+}*/
+
+// Permet de mettre à jour un commentaire avec un id entré en paramètres
+function updateCommentaire($idUser)
+{
+	$SQL="UPDATE users SET commentaire=NULL WHERE idUser='$idUser'";
+	SQLUpdate($SQL);
 }
+
 
 
 /************* CONTACT *******************/

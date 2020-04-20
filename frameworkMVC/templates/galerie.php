@@ -66,10 +66,12 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
     <div class="jcarousel-wrapper ml-5 mr-5">
         <div class="jcarousel" data-jcarousel="true">
             <ul style="left: -864px; top: 0px;">
-                <li style="width: 216px;"><img src="./ressources/Bijoux/bj.jpg" alt="Image 2"/></li>
-                <li style="width: 216px;"><img src="./ressources/Bijoux/bj1.jpg" alt="Image 3"/></li>
-                <li style="width: 216px;"><img src="./ressources/Bijoux/bj2.jpg" alt="Image 4"/></li>
-                <li style="width: 216px;"><img src="./ressources/Bijoux/bijoux-bague.jpg" alt="Image 5"></li>
+            <?php
+                $files = glob("./images_galerie/*.*");
+                $nbFic = count($files); // contient le nombre de fichiers du dossier images_galerie
+                for($i=0; $i<$nbFic; $i++)
+                    echo "<li style='width: 216px;'><img src='".$files[$i]."' alt='".$files[$i]."'/></li>";
+            ?>
             </ul>
 </div>
 
