@@ -56,23 +56,26 @@
 <p class="text-center mt-5 mb-5" style="margin:auto;max-width:75vw">Sur cette page, vous pouvez consulter l'historique de vos réparations et éventuellement poster un avis sur celle(s) effectuée(s).</p>
 
 <?php
-    $SQL = "SELECT COUNT(b.idReparation) FROM reparationbijoux b, users u WHERE u.idUser=b.idUser AND u.email='$_SESSION[mail]'";
-    $nbJwl = SQLGetChamp($SQL);
-    
-    $numSav = parcoursRs(SQLSelect("SELECT numeroSAV FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));    
-    $descJwl = parcoursRs(SQLSelect("SELECT probleme FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
-    $idType = parcoursRs(SQLSelect("SELECT idType FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
-    $idMatiere = parcoursRs(SQLSelect("SELECT idMatiere FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
-    $idReparation = parcoursRs(SQLSelect("SELECT idReparation FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
+    $numSav = parcoursRs(SQLSelect("SELECT numeroSAV FROM reparationbijoux WHERE idUser='$_SESSION[idUser]'"));    
+    $descJwl = parcoursRs(SQLSelect("SELECT probleme FROM reparationbijoux WHERE idUser='$_SESSION[idUser]'"));
+    $idType = parcoursRs(SQLSelect("SELECT idType FROM reparationbijoux WHERE idUser='$_SESSION[idUser]'"));
+    $idMatiere = parcoursRs(SQLSelect("SELECT idMatiere FROM reparationbijoux WHERE idUser='$_SESSION[idUser]'"));
+    $idReparation = parcoursRs(SQLSelect("SELECT idReparation FROM reparationbijoux WHERE idUser='$_SESSION[idUser]'"));
     $extra="";
     
+    if( !empty($_SESSION['mail']) ){
+        $SQL = "SELECT COUNT(b.idReparation) FROM reparationbijoux b, users u WHERE u.idUser=b.idUser AND u.email='$_SESSION[mail]'";
+        $nbJwl = SQLGetChamp($SQL);
+    } 
+    else{
+        $nbJwl = 0;
+        $extra = "Connectez-vous pour consulter vos réparations.";
+    } 
+
     $matJwl = getMatiereById($idMatiere);
     $labelJwl = getTypeById($idType);
     $etatReparation = getEtatReparationById($idReparation);
 
-    echo empty($_SESSION['mail']);
-
-    if( empty($_SESSION['mail']) ) $extra = "Connectez-vous pour consulter vos réparations.";
     if( $nbJwl==0 ) echo '<p class="h6 text-center">(Aucune réparation n\'a été effectuée. '.$extra.')</p><div class="mb-5"><br/></div>';
     else {
         for($i=1; $i<=$nbJwl; $i++){
