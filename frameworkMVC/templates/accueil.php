@@ -31,16 +31,27 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 
     <p class="lead ml-5 mt-5">Bienvenue chez L'Atelier du Bijoutier</p>
     <div class="ml-5 mr-5 mb-5 text-justify">
-       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis arcu auctor neque ullamcorper ornare at nec turpis. Vestibulum molestie lorem sed nulla condimentum volutpat. Praesent condimentum ut sapien vel fermentum. Ut gravida sagittis quam, ut dictum mauris facilisis ac. Etiam ligula ex, ultrices vitae ultrices ac, consectetur ac velit. Suspendisse potenti. Nunc mi nunc, condimentum a erat ac, aliquet interdum quam. In lobortis nec lectus id faucibus.
-    <br>
-    <br>
-       Morbi vitae semper metus, vel congue diam. Nunc blandit pharetra purus ut accumsan. Proin iaculis mi sapien, vitae vestibulum est molestie a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur non cursus lectus, finibus maximus ex. Nam pulvinar elit est, eget malesuada felis tincidunt non. Duis volutpat fermentum turpis, et faucibus est pulvinar vulputate. Phasellus nec massa sit amet magna porta congue ac et leo. Praesent fringilla mi erat, et efficitur lorem egestas eu. Integer sed tincidunt ipsum. Curabitur at lectus sem. Integer tempor, tortor id malesuada mattis, velit dui lobortis dolor, nec maximus dolor est et lacus. Suspendisse vestibulum aliquam velit a eleifend. Maecenas id consectetur risus.
+      <p>Sur ce site internet, vous trouverez de nombreux outils concernant la réparation de vos bijoux. Vous pouvez, si vous le souhaitez, remplir un formulaire de réparation de bijou dans l’onglet « Réparer mon bijou ». Vous retrouverez l’ensemble de vos anciennes commandes dans l’onglet « Mes Bijoux ».</p>
+      Un formulaire de contact beaucoup plus classique est également disponible pour répondre à vos éventuelles questions. 
+      <br/>
+      Enfin vous pouvez également admirer le travail de notre artisan dans l’onglet « Galerie » et y déposer un commentaire. 
+
     <br>
     <br>
     </div>
     <div class="ml-5 mr-5 bg-light">
-    <div class="ml-5 mt-2">
+    <div class="ml-5 mt-2 mb-4 p-1">
        <h3>NOTRE BOUTIQUE</h3>
-       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis arcu auctor neque ullamcorper ornare at nec turpis. Vestibulum molestie lorem sed nulla condimentum volutpat. Praesent condimentum ut sapien vel fermentum. Ut gravida sagittis quam, ut dictum mauris facilisis ac. Etiam ligula ex, ultrices vitae ultrices ac, consectetur ac velit. Suspendisse potenti. Nunc mi nunc, condimentum a erat ac, aliquet interdum quam. In lobortis nec lectus id faucibus.</p>
+       <p>L’atelier du Bijoutier est une boutique de qualité, située à Hénin-Beaumont, au 77 Place Jean Jaurès.
+        <br/>
+        Nous réparons toute sorte de bijoux (collier, bracelet, etc..) et toute sorte de matière (or, argent, etc…). Notre équipe sera vous conseiller et vous accompagner le plus professionnellement possible.
+        <br/> 
+        Nous mettrons tout notre savoir-faire et nos connaissances à votre disposition pour réparer au mieux vos bijoux les plus précieux et leur redonner une seconde vie. 
+        </p>
     </div>
     </div>
+
+    <blockquote class="text-center">
+      <p>“Rien n'est estimable en soi, ni l'or, ni les perles, ni les soieries les plus fines. Un objet, si parfait soit-il, n'a de valeur que par le souvenir qu'il incarne.”</p>
+      <footer style="text-decoration:underline">Louis Lefebvre / Guanahani </footer>
+    </blockquote>
