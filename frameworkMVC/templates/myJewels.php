@@ -65,12 +65,12 @@
     $idMatiere = parcoursRs(SQLSelect("SELECT idMatiere FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
     $idReparation = parcoursRs(SQLSelect("SELECT idReparation FROM reparationbijoux WHERE idUser=$_SESSION[idUser]"));
     $extra="";
-
-    //"SELECT termine FROM reparationbijoux WHERE idUser='$_SESSION['idUser']'"
     
     $matJwl = getMatiereById($idMatiere);
     $labelJwl = getTypeById($idType);
     $etatReparation = getEtatReparationById($idReparation);
+
+    echo empty($_SESSION['mail']);
 
     if( empty($_SESSION['mail']) ) $extra = "Connectez-vous pour consulter vos réparations.";
     if( $nbJwl==0 ) echo '<p class="h6 text-center">(Aucune réparation n\'a été effectuée. '.$extra.')</p><div class="mb-5"><br/></div>';
