@@ -9,9 +9,9 @@
 		//console.log("idUser = " + id);
 		if(confirm('Voulez-vous vraiment supprimer ce commentaire ?')){
   			console.log("Tu as cliqué sur oui / l'idUser cliqué est : " + id);
-  			<?php 
-				  updateCommentaire(id);
-				  //deleteCommentaire(id);
+  			document.cookie="id="+id;
+			  <?php if(isset($_COOKIE["id"]))
+				  updateCommentaire($_COOKIE["id"]);
   			?>
   			window.location.reload(true);
   		}

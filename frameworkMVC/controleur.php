@@ -105,8 +105,56 @@
 				}
 				else
 					$addArgs = "?view=galerie&erreur=vide";
- 			break;
- 		}
+			break;
+
+			case 'Valider':
+				if ($mailContact=valider("mailContact") && $nomContact=valider("nomContact") && $prenomContact=valider("prenomContact") && $sujet=valider("sujetContact") && $message=valider("messageContact")){
+
+					// Ma clé privée
+					$secret = "6Ld1yuwUAAAAAIUHShhYNy3Il8SysvqjQAXw581p";
+					// Paramètre renvoyé par le recaptcha
+					$response = $_POST['g-recaptcha-response'];
+					// On récupère l'IP de l'utilisateur
+					$remoteip = $_SERVER['REMOTE_ADDR'];
+
+					$api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
+						. $secret
+						. "&response=" . $response
+						. "&remoteip=" . $remoteip;
+
+					$decode = json_decode(file_get_contents($api_url), true);
+
+					if ($decode['success'] == true) {
+						// C'est un humain
+
+
+						$contenu = '
+												<html>
+												<head>
+												   <title>' . $sujet . '</title>
+												</head>
+												<body> De ' . $nomContact . ' ' . $prenomContact . ' : ' . $mailContact . '
+												  <br> <p>' . $message . '</p>
+												</body>
+												</html>';
+						$entetes =
+							'Content-type: text/html; charset=utf-8' . "\r\n" .
+							'From: email@domain.tld' . "\r\n" .
+							'Reply-To: email@domain.tld' . "\r\n" .
+							'X-Mailer: PHP/' . phpversion();
+
+						//Envoi du mail
+						mail("genokileur62@gmail.com", $sujet, $contenu, $entetes);
+					}
+					else{
+						$addArgs="?view=contact&erreur=1";
+					}
+					}
+					else{
+						$addArgs="?view=contact&erreur=1";
+					}
+					break;
+ 				}
  	}
 
  	// On redirige toujours vers la page index, mais on ne connait pas le répertoire de base

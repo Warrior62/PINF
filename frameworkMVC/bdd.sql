@@ -17,27 +17,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaire`
---
-
-CREATE TABLE `commentaire` (
-  `idCommentaire` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL,
-  `descriptionCommentaire` varchar(255) COLLATE utf8_bin NOT NULL,
-  `note` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Déchargement des données de la table `commentaire`
---
-
-INSERT INTO `commentaire` (`idCommentaire`, `idUser`, `descriptionCommentaire`, `note`) VALUES
-(2, 1, 'biteeeee', 5),
-(3, 7, 'mathis comment', 5);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `matiere`
 --
 
