@@ -1,0 +1,57 @@
+FICHIER DE TESTS UNITAIRES
+ATELIER DU BIJOUTIER
+PINF
+
+HEADER
+[] passage au bouton trois barres horizontales quand réduction largeur page
+[] extension du bouton trois barres horizontales ne dépasse pas l'image header
+[] si connectée, affichage du prénom de la personne
+[] extension du bouton trois barres horizontales permet affichage prénom personne connectée
+
+ACCUEIL
+[] footer bien collé en bas de la page
+[] texte qui ne dépasse les bordures des divs
+
+GALERIE
+[] affichage des images dossier "images_galerie" dans le carousel
+[] possibilité de faire défilr les images du carousel avec les flèches
+[] affichage des avis/commentaires quand pas connectée
+[] affichage des avis/commentaires quand connectée
+[] possibilité de déposer un avis + note avec étoiles
+	[] vérifier que cet avis va dans la bdd
+	[] et qu'il est immédiatmet disponible dans la rubrique Avis/Commentaires
+
+REPARER MON BIJOU
+[] quand pas connectée, redirection 5 secondes vers Login
+[] quand connectée, affichage du formulaire de réparation
+	[] vérifier que la réparation apparaît dans la bdd
+	[] vérifier que la réparation s'affiche dans la page Mes bijoux
+
+MES BIJOUX
+[] quand pas connectée, message double
+[] quand connectée
+	[] si 0 réparations alors message simple
+	[] si au moins 1 réparation alors affichage bloc réparations de la connectée
+	[] si réparation en cours, message rouge, sinon message vert
+
+CONTACT
+[] quand pas connectée
+    [] formulaire vide
+	[] vérifier réception du mail envoyé
+[] quand connectée
+	[] formulaire pré rempli
+	[] vérifier réception du mail envoyé
+[] vérifier formualairz ne dépasse pas bordures div
+[] vérifier envoi formulaire quand captcha pas coché
+
+LOGIN
+[] boutons submit ne dépassent pas les bordures divs
+[] création cookie quand "RESTER CONNECTE" cochée et formulaire validé
+[] vérifier champs bordures rouges ou vertes pour inscription
+[] vérifier cacher un des deux formulaires quand "je possède..." cliqué
+[] vérifier redirection quand connection ou inscription acceptée
+[] vérifier redirection quand connection ou inscription refusée
+
+FOOTER
+[] ouverture page instagram compte réparateur quand clique sur instagram icon
+[] ouverture page facebook compte réparateur quand clique sur facebook icon
