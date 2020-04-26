@@ -2,56 +2,94 @@ FICHIER DE TESTS UNITAIRES
 ATELIER DU BIJOUTIER
 PINF
 
+
+[] Tests validés sur Safari
+[] Tests validés sur Chrome
+[] Tests validés sur Mozilla
+
+
 HEADER
-[] passage au bouton trois barres horizontales quand réduction largeur page
-[] extension du bouton trois barres horizontales ne dépasse pas l'image header
-[] si connectée, affichage du prénom de la personne
-[] extension du bouton trois barres horizontales permet affichage prénom personne connectée
+[X] passage au bouton trois barres horizontales quand réduction largeur page
+[X] extension du bouton trois barres horizontales ne dépasse pas l'image header
+[X] si connectée, affichage du prénom de la personne
+********[] extension du bouton trois barres horizontales permet affichage prénom personne connectée
+[X] "Connexion/Inscription" quand pas connectée
+[X] "Se déconnecter" quand connectée
+
 
 ACCUEIL
-[] footer bien collé en bas de la page
-[] texte qui ne dépasse les bordures des divs
+[X] footer bien collé en bas de la page
+[X] texte qui ne dépasse les bordures des divs
+
 
 GALERIE
-[] affichage des images dossier "images_galerie" dans le carousel
-[] possibilité de faire défilr les images du carousel avec les flèches
-[] affichage des avis/commentaires quand pas connectée
-[] affichage des avis/commentaires quand connectée
-[] possibilité de déposer un avis + note avec étoiles
-	[] vérifier que cet avis va dans la bdd
-	[] et qu'il est immédiatmet disponible dans la rubrique Avis/Commentaires
+[X] affichage des images dossier "images_galerie" dans le carousel
+[X] possibilité de faire défiler les images du carousel avec les flèches
+[X] affichage des avis/commentaires quand pas connectée
+[X] affichage des avis/commentaires quand connectée
+[X] possibilité de déposer un avis + note avec étoiles
+	[X] vérifier que cet avis va dans la bdd
+	[X] et qu'il est immédiatement disponible dans la rubrique Avis/Commentaires
+
 
 REPARER MON BIJOU
-[] quand pas connectée, redirection 5 secondes vers Login
-[] quand connectée, affichage du formulaire de réparation
-	[] vérifier que la réparation apparaît dans la bdd
-	[] vérifier que la réparation s'affiche dans la page Mes bijoux
+[X] quand pas connectée, redirection 5 secondes vers Login
+[X] quand connectée, affichage du formulaire de réparation
+	[X] vérifier que la réparation apparaît dans la bdd
+	[X] vérifier que la réparation s'affiche dans la page Mes bijoux
+
 
 MES BIJOUX
-[] quand pas connectée, message double
-[] quand connectée
-	[] si 0 réparations alors message simple
-	[] si au moins 1 réparation alors affichage bloc réparations de la connectée
-	[] si réparation en cours, message rouge, sinon message vert
+[X] quand pas connectée, message double
+[X] quand connectée
+	[X] si 0 réparations alors message simple
+	[X] si au moins 1 réparation alors affichage bloc réparations de la connectée
+	[X] si réparation en cours, message rouge, sinon message vert
+
 
 CONTACT
 [] quand pas connectée
-    [] formulaire vide
-	[] vérifier réception du mail envoyé
+    [X] formulaire vide
+********	[] vérifier réception du mail envoyé 
 [] quand connectée
-	[] formulaire pré rempli
-	[] vérifier réception du mail envoyé
-[] vérifier formualairz ne dépasse pas bordures div
-[] vérifier envoi formulaire quand captcha pas coché
+	[X] formulaire pré rempli
+	[X] vérifier réception du mail envoyé
+		********[] affichage adresse mail personne émettrice
+[X] vérifier formulaire ne dépasse pas bordures div
+[X] vérifier envoi formulaire quand captcha pas coché
+
 
 LOGIN
-[] boutons submit ne dépassent pas les bordures divs
-[] création cookie quand "RESTER CONNECTE" cochée et formulaire validé
-[] vérifier champs bordures rouges ou vertes pour inscription
-[] vérifier cacher un des deux formulaires quand "je possède..." cliqué
-[] vérifier redirection quand connection ou inscription acceptée
-[] vérifier redirection quand connection ou inscription refusée
+[X] boutons submit ne dépassent pas les bordures divs
+********[] création cookie quand "RESTER CONNECTE" cochée et formulaire validé
+[X] vérifier champs bordures rouges ou vertes pour inscription
+[X] vérifier cacher un des deux formulaires quand "je possède..." cliqué
+[X] vérifier redirection quand connection acceptée
+[X] vérifier redirection quand inscription acceptée
+********[] vérifier redirection quand connection ou inscription refusée
+
+
+PANNEL GALERIE
+[X] déposer fichiers photos et envoyer
+[X] vérifier images déposées sont dans galerie
+[X] supprimer images de la galerie
+
+
+PANNEL COMMENTAIRES
+[X] vérifier si bon idUser, pesudo et commentaire
+[X] vérifier suppression commentaire 
+	[X] vérifier résultat dans la bdd 
+
+
+PANNEL REPARATIONS
+[X] vérifier suppression réparation frontend
+[X] vérifier dans la bdd la maj
+
 
 FOOTER
-[] ouverture page instagram compte réparateur quand clique sur instagram icon
-[] ouverture page facebook compte réparateur quand clique sur facebook icon
+[X] ouverture page instagram compte réparateur quand clique sur instagram icon
+[X] ouverture page facebook compte réparateur quand clique sur facebook icon
+
+
+
+
